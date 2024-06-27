@@ -1,0 +1,35 @@
+{
+    "Languages": [
+        ["Python", 2020],
+        ["Java", 2023],
+        ["JavaScript", 2023],
+        ["TypeScript", 2023],
+        ["C++", 2024],
+        ["C", 2024]
+    ],
+    "Machine Learning": [
+            ["OpenCV", 2023],
+            ["Object Detection Models", 2023],
+            ["Natural Language Processing", 2023],
+            ["TensorFlow", 2022],
+            ["Computer Vision", 2023]
+        ],
+    "Web Development": [
+        ["HTML/CSS", 2020],
+        ["React", 2023],
+        ["Flask", 2023],
+        ["Node", 2023],
+        ["Firebase", 2022],
+        ["MongoDB", 2022],
+        ["Next.js", 2023],
+        ["MySQL", 2023]
+    ],
+    "Tools & Software": [
+        ["Git", 2020],
+        ["Android Studio", 2022],
+        ["Raspberry Pi", 2022],
+        ["AWS", 2023],
+        ["Arduino", 2023],
+        ["Blood, sweat, & tears", 2006]
+    ]
+}

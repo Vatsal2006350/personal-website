@@ -1,0 +1,55 @@
+{
+    "education": [
+        [
+            "University of Michigan - Ann Arbor",
+            "BS in Computer Science LSA Honors",
+            "May 2028"
+        ],
+        [
+            "Raffles World Academy",
+            "International Baccalaureate Diploma",
+            "May 2024"
+        ]
+        
+    ],
+    "work": [
+        [
+            "Software Development Engineer",
+            "ThirdEar AI",
+            "May 2024 - Present"
+        ],
+        [
+            "Software Engineer Intern",
+            "Geoomnii",
+            "June 2022 - July 2023"
+        ],
+        [
+            "Data Analyst",
+            "Apparel Group (Brands: Aldo & Havaianas)",
+            "June 2022 - June 2022"
+        ]
+    ],
+    "projects": [
+        
+        [
+            "Evaluating Robustness of Object Detection Models",
+            "Research Assistant, University of Cambridge",
+            "March 2023 - October 2023"
+        ],
+        [
+            "Wolfram Summer School",
+            "Forecasting Stock Prices using LLMs",
+            "June 2023 - July 2023"
+        ], 
+        [
+            "Unbiased LLMs System",
+            "Inspirit AI Summer Program",
+            "June 2023 - July 2023"
+        ],
+        [
+            "Fitness Freak Health Platform",
+            "Founder",
+            "October 2020 - Present"
+        ]
+    ]
+}

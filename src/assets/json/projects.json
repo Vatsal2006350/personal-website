@@ -1,0 +1,26 @@
+{
+    "Fitness Freak": {
+        "tools": "HTML, CSS, JavaScript, React, Flask, OpenAI & Google Palm API, Firebase",
+        "description": "An AI-powered web app featuring chatbot integration to deliver personalized workout & diet plans. It includes a comprehensive repository of workouts with integrated YouTube videos for step-by-step guidance, ensuring users have all they need in one place to kickstart their fitness journeys. Reached 10,000 + users",
+        "imagePath": "./Fitness-Freak.png",
+        "link": "https://fitness-freak-tracker.vercel.app/"
+    },
+    "Evaluating Object Detection Models": {
+        "tools": "Google Colab, Yolov8, Python, OpenCV, Image Segmentation, Ablation Study, PyTorch, LabelImg, Matplotlib",
+        "description": "Established a comprehensive methodology integrating synthetic image generation, automatic annotation, and YOLOv8 segmentation to evaluate and mitigate algorithmic biases in object detection models under varied conditions and unfamiliar scenarios. Published in the National High School Journal of Science",
+        "imagePath": "./Object-Detection.png",
+        "link": "https://nhsjs.com/2023/evaluating-robustness-of-object-detection-in-varying-image-complexity/"
+    },
+    "Financial Stock Market Predictor": {
+        "tools": "Wolfram Language, LLMs, Word2Vec, Kaggle Financial News Dataset",
+        "description": "Developed a predictive model using LLM embeddings and Wolfram Language to accurately forecast stock price movements based on news articles, achieving significant statistical accuracy and recognition in the Wolfram Proceedings publication.",
+        "imagePath": "./FinancialModel.png",
+        "link": "https://community.wolfram.com/groups/-/m/t/2959055"
+    },
+    "Unbiased LLMs system": {
+        "tools": "Jupyter Notebook, spaCy, Pandas, Matplotlib",
+        "description": " Collaborated with a team of 5 at the Inspirit AI Summer Program to develop a Streamlit app for a project focusing on transformers, architecture, model training, and hallucination in language models.",
+        "imagePath": "./UnbiasedLLMs.png",
+        "link": "https://docs.google.com/presentation/d/13GYOowaSZwY6ZRnPUextCI2MTvf4vPr4dKnEAA2UaUQ/edit?usp=sharing"
+    }
+}
