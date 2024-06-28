@@ -13,6 +13,7 @@ const Contact = () => {
     const [formDetails, setFormDetails] = useState(formInitialDetails);
     const [buttonText, setButtonText] = useState('Send');
     const [status, setStatus] = useState({});
+    const [errors, setErrors] = useState({});
 
     const form = useRef();
 
@@ -21,35 +22,58 @@ const Contact = () => {
             ...formDetails,
             [key]: value
         });
+        // Clear error for this field when user starts typing
+        if(errors[key]) {
+            setErrors({
+                ...errors,
+                [key]: ''
+            });
+        }
+    };
+
+    const validateForm = () => {
+        let tempErrors = {};
+        if(!formDetails.from_name.trim()) tempErrors.from_name = "Name is required";
+        if(!formDetails.from_email.trim()) tempErrors.from_email = "Email is required";
+        if(!formDetails.message.trim()) tempErrors.message = "Message is required";
+        setErrors(tempErrors);
+        return Object.keys(tempErrors).length === 0;
     };
 
     const sendEmail = (e) => {
         e.preventDefault();
-        setButtonText('Sending...');
+        if(validateForm()) {
+            setButtonText('Sending...');
 
-        emailjs.sendForm(
-            'service_t3aguuo',
-            'template_eej5egu',
-            form.current,
-            'dnofV-yc9OTYCzlpD'
-        )
-        .then((result) => {
-            console.log(result.text);
-            setStatus({
-                success: true,
-                message: 'Message sent successfully!'
+            emailjs.sendForm(
+                'service_t3aguuo',
+                'template_eej5egu',
+                form.current,
+                'dnofV-yc9OTYCzlpD'
+            )
+            .then((result) => {
+                console.log(result.text);
+                setStatus({
+                    success: true,
+                    message: 'Message sent successfully!'
+                });
+                setButtonText('Send');
+                setFormDetails(formInitialDetails);
+            })
+            .catch((error) => {
+                console.error("EmailJS error:", error);
+                setStatus({
+                    success: false,
+                    message: `Failed to send message: ${error.text}`
+                });
+                setButtonText('Send');
             });
-            setButtonText('Send');
-            setFormDetails(formInitialDetails);
-        })
-        .catch((error) => {
-            console.error("EmailJS error:", error);
+        } else {
             setStatus({
                 success: false,
-                message: `Failed to send message: ${error.text}`
+                message: 'Please fill in all fields.'
             });
-            setButtonText('Send');
-        });
+        }
     };
 
     return (
@@ -79,6 +103,7 @@ const Contact = () => {
                                         placeholder="Name" 
                                         onChange={(e) => onFormUpdate('from_name', e.target.value)} 
                                     />
+                                    {errors.from_name && <p className="error-message">{errors.from_name}</p>}
                                 </Col>
                             </Row>
                             <Row>
@@ -90,6 +115,7 @@ const Contact = () => {
                                         placeholder="Email" 
                                         onChange={(e) => onFormUpdate('from_email', e.target.value)}
                                     />
+                                    {errors.from_email && <p className="error-message">{errors.from_email}</p>}
                                 </Col>
                             </Row>
                             <Row>
@@ -101,6 +127,7 @@ const Contact = () => {
                                         placeholder="Message" 
                                         onChange={(e) => onFormUpdate('message', e.target.value)} 
                                     />
+                                    {errors.message && <p className="error-message">{errors.message}</p>}
                                     <button type="submit">
                                         <span>{buttonText}</span>
                                     </button>
