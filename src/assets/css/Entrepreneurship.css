@@ -1,0 +1,83 @@
+.entrepreneurship {
+    margin-top: 60px;
+}
+
+.venture-container {
+    overflow: initial;
+    margin-top: 40px;
+}
+
+.venture-content {
+    padding: 0 200px;
+}
+
+.venture-img {
+    border-radius: 20px;
+    max-width: 750px;
+}
+
+.venture-title {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.venture-description {
+    margin-bottom: 30px !important;
+    margin-top: 10px !important;
+}
+
+.venture-button:hover .button-icon {
+    transform: translateX(5px);
+}
+
+.button-icon {
+    font-size: 25px;
+    margin-left: 5px;
+    transition: .4s;
+}
+
+.venture-button {
+    display: flex;
+    align-items: center;
+    width: min-content;
+    margin: auto auto 50px auto !important;
+    padding: 10px 20px;
+}
+
+.venture-button span {
+    display: flex;
+    align-items: center;
+    margin-left: 4px;
+}
+
+/* Swiper styles remain the same as in Projects.css */
+
+@media (max-width: 1200px) {
+    .venture-content {
+        padding: 0 100px;
+    }
+
+    .venture-img {
+        max-width: 500px;
+    }
+
+    /* Other media query styles remain the same */
+}
+
+@media (max-width: 768px) {
+    .venture-content {
+        padding: 0 10px;
+    }
+
+    /* Other media query styles remain the same */
+
+    .venture-subtitle {
+        font-size: 14px;
+    }
+
+    .venture-description {
+        font-size: 14px;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+}

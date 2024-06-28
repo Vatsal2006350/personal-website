@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Skills from './components/Skills.js';
 import Experience from './components/Experience.js';
 import Projects from './components/Projects.js';
+import Entrepreneurship from './components/Entrepreneurship.js';
 import Contact from './components/Contact.js';
 import Footer from './components/Footer.js';
 
@@ -22,6 +23,7 @@ function App() {
           <Skills />
           <Experience />
           <Projects />
+          <Entrepreneurship />
         </Container>
       </section>
       <Contact />

@@ -1,0 +1,20 @@
+{
+    "Business Conference Series": {
+        "role": "Founder",
+        "description": "Founded the first conference series at my high school, bringing together 10 business professionals and CEOs to discuss COVID-19's impact on various sectors, such as apparel, footwear, education, and water systems. The event highlighted resilience strategies and attracted over 500 attendees, inspiring youth to innovate and tackle societal challenges. Recognized by the IB Organization the the 100.3 Talk FM for my contributions.",
+        "imagePath": "./conference.png",
+        "link": "https://blogs.ibo.org/2023/08/08/diploma-programme-dp-student-hosts-a-successful-business-conference/"
+    },
+    "TEDx Event Management": {
+        "role": "Organizer",
+        "description": "Initiated the TEDx program at my high school, offering a platform for young students to share their voices globally. The event featured 12 speakers and attracted over 800 online and in-person attendees. I also established a coordinated system to ensure this becomes a recurring event, continuing to inspire future students.",
+        "imagePath": "./tedx-min.png",
+        "link": "https://www.ted.com/tedx/events/54637"
+    },
+    "COP 28 Initiative": {
+        "role": "Organizer & Speaker",
+        "description": "led our school's environmental club in organizing RWA COP28, our largest event, where students devised solutions for cardboard reengineering and green canopy initiatives. This success led to an invitation to speak at COP28 in December at the Blue Zone in Expo City Dubai, as part of the Dar Youth Initiative. My presentation, Ecological Solutions for Tomorrow, proposed innovative ideas like an AR recycling app and solar-powered charging stations for school campuses.",
+        "imagePath": "./cop.png",
+        "link": "https://buildspace.so/"
+    }
+}
