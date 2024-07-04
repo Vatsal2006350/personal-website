@@ -11,10 +11,18 @@
         "imagePath": "./tedx-min.png",
         "link": "https://www.ted.com/tedx/events/54637"
     },
+
+    "Buildspace program": {
+        "role": "Developer",
+        "description": "Participated in an incubator program to scale my health platform, Fitness Freak. This allowed me to provide additional services such as workout poses, an integrated AI chatbot, and personalized advice through workout planners.",
+        "imagePath": "./buildspace.png",
+        "link": "https://buildspace.so/"
+    },
+
     "COP 28 Initiative": {
         "role": "Organizer & Speaker",
         "description": "led our school's environmental club in organizing RWA COP28, our largest event, where students devised solutions for cardboard reengineering and green canopy initiatives. This success led to an invitation to speak at COP28 in December at the Blue Zone in Expo City Dubai, as part of the Dar Youth Initiative. My presentation, Ecological Solutions for Tomorrow, proposed innovative ideas like an AR recycling app and solar-powered charging stations for school campuses.",
         "imagePath": "./cop.png",
-        "link": "https://buildspace.so/"
+        "link": "https://docs.google.com/document/d/1e3ZqpM8cxxcEoCI_Fxnp-nFmQHEMBjI3/edit?usp=sharing&ouid=100486536099273287857&rtpof=true&sd=true"
     }
 }
