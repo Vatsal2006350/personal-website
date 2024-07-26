@@ -11,6 +11,7 @@ import Projects from './components/Projects.js';
 import Entrepreneurship from './components/Entrepreneurship.js';
 import Contact from './components/Contact.js';
 import Footer from './components/Footer.js';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       </section>
       <Contact />
       <Footer />
+      <Analytics />
     </div>
   );
 }
