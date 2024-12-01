@@ -86,7 +86,7 @@ const Contact = () => {
                             <p>I'm always open to new opportunities and collaborations in the world of technology.</p>
                             <ul>
                                 <li>Email: svatsal@umich.edu</li>
-                                <li>Phone: (+971) 50-806-2831</li>
+                                <li>Phone: (+1) 734-834-2993</li>
                             </ul>
                             <p className="subtle-text">Passionate about software engineering and product management, I'm excited to bring innovative solutions to challenging problems.</p>
                         </div>
