@@ -3,8 +3,6 @@ import NavBar from './components/NavBar.js';
 import Banner from './components/Banner.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/css/App.css';
-import Skills from './components/Skills.js';
-import Experience from './components/Experience.js';
 import Projects from './components/Projects.js';
 import Entrepreneurship from './components/Entrepreneurship.js';
 import Contact from './components/Contact.js';
@@ -68,8 +66,6 @@ function App() {
           <section className="body">
             <div className="box">
               <div className="reveal"><Projects onCaseStudy={openPage} /></div>
-              <div className="reveal"><Skills /></div>
-              <div className="reveal"><Experience onCaseStudy={openPage} /></div>
               <div className="reveal"><Entrepreneurship /></div>
             </div>
           </section>
