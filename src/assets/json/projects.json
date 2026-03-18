@@ -1,0 +1,34 @@
+{
+    "Narrative": {
+        "tagline": "Chief Product Officer & Co-Founder · YC F25. Cut manual editing time by 40%.",
+        "tools": "Next.js, React, Python, Figma, Jira",
+        "description": "AI-powered video editing platform. Owned the MVP roadmap from 0→1 after 100+ customer interviews.",
+        "imagePath": "./AdDojo.png",
+        "link": "#",
+        "caseStudy": "narrative"
+    },
+    "TwinMind": {
+        "tagline": "Founding Product Lead. Grew users 10K → 100K in 3 months. $60M valuation.",
+        "tools": "React, Python, Postgres, Groq API, Figma",
+        "description": "AI second brain startup. First founding member — owned product, engineering, and growth.",
+        "imagePath": null,
+        "link": "#",
+        "caseStudy": "twinmind"
+    },
+    "Geoomnii": {
+        "tagline": "Technical Product Manager. Led e-commerce platform delivery. 12K sales, 40% cost reduction.",
+        "tools": "Jira, SQL, Figma, Excel, Miro",
+        "description": "E-commerce platform in Dubai. Led delivery across catalog, payments, and operations.",
+        "imagePath": null,
+        "link": "#",
+        "caseStudy": "geoomnii"
+    },
+    "DigiPals": {
+        "tagline": "Product Engineer at a YC F25 startup. The future of Social in the age of AI.",
+        "tools": "React, TypeScript, AI/ML, Mobile",
+        "description": "AI-native social operating system. Building ambient AI agents for group chats.",
+        "imagePath": null,
+        "link": "#",
+        "caseStudy": "digipals"
+    }
+}

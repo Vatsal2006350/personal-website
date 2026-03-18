@@ -1,0 +1,42 @@
+/* Scroll-to-top FAB - from Hasque repo (Freelancer theme) */
+.scroll-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1040;
+}
+
+.scroll-top-btn {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(17, 17, 17, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top-btn:hover {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--bg-primary);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.scroll-top-btn:focus {
+    outline: none;
+}
+
+/* Only show on mobile/tablet - like Freelancer's visible-xs visible-sm */
+@media (min-width: 992px) {
+    .scroll-top {
+        display: none;
+    }
+}

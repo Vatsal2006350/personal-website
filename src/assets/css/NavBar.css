@@ -1,0 +1,213 @@
+/* ── Floating Pill — collapses at top, expands on scroll ── */
+
+.pill-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pill-inner {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 5px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── VS monogram ── */
+.pill-vs {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    font-family: var(--font-serif);
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+}
+
+.pill-vs:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+/* ── Scroll progress indicator (right side) ── */
+.pill-indicator {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
+    position: relative;
+    transition: border-color 0.25s ease;
+}
+
+.pill-indicator::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: rgba(14, 14, 14, 0.9);
+}
+
+/* ── Nav links — hidden by default, shown on scroll ── */
+.pill-links {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-width 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.4s ease,
+                padding 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0;
+}
+
+.pill-links a {
+    font-size: 13px;
+    font-weight: 450;
+    color: rgba(255, 255, 255, 0.45);
+    padding: 7px 16px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.pill-links a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+/* ── Expanded state (on scroll) ── */
+.pill-nav.scrolled .pill-inner {
+    padding: 5px 5px;
+    background: rgba(14, 14, 14, 0.8);
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.pill-nav.scrolled .pill-links {
+    max-width: 300px;
+    opacity: 1;
+    padding: 0 4px;
+}
+
+/* indicator inner dot inherits from conic-gradient on parent */
+
+/* ── Mobile toggle ── */
+.mob-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 50%;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mob-toggle span {
+    display: block;
+    width: 16px;
+    height: 1.5px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+}
+
+.mob-toggle.open span:first-child {
+    transform: rotate(45deg) translate(2.3px, 2.3px);
+}
+
+.mob-toggle.open span:last-child {
+    transform: rotate(-45deg) translate(2.3px, -2.3px);
+}
+
+/* ── Mobile dropdown ── */
+.pill-mobile {
+    position: fixed;
+    top: 68px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 200px;
+    background: rgba(10, 10, 10, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    animation: pillDrop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    z-index: 1002;
+}
+
+@keyframes pillDrop {
+    from { opacity: 0; transform: translateX(-50%) translateY(-8px) scale(0.96); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+.pill-mobile a {
+    font-size: 15px;
+    font-weight: 450;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 12px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.pill-mobile a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .pill-nav {
+        top: 16px;
+    }
+
+    .mob-toggle {
+        display: flex;
+        top: 16px;
+    }
+
+    .pill-links {
+        display: none !important;
+    }
+
+    .pill-indicator {
+        display: none;
+    }
+}

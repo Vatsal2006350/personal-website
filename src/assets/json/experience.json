@@ -1,0 +1,18 @@
+{
+    "work": [
+        ["AdDojo", "Turn raw footage into viral clips", "January 2025 - Present"],
+        ["TwinMind", "First Founding Member & Everything Intern", "May 2024 - July 2025"],
+        ["Geoomnii", "Full Stack Engineer", "June 2022 - July 2023"],
+        ["Apparel Group (Brands: Aldo & Havaianas)", "Data Analyst", "June 2022 - June 2022"]
+    ],
+    "education": [
+        ["University of Michigan - Ann Arbor", "BS in Computer Science LSA Honors", "May 2028"],
+        ["Raffles World Academy", "International Baccalaureate Diploma", "May 2024"]
+    ],
+    "projects": [
+        ["Evaluating Robustness of Object Detection Models", "Research Assistant, University of Cambridge", "March 2023 - October 2023"],
+        ["Unbiased LLMs System", "Inspirit AI Summer Program", "June 2023 - July 2023"],
+        ["Wolfram Summer School", "Forecasting Stock Prices using LLMs", "June 2023 - July 2023"],
+        ["Fitness Freak Health Platform", "Founder", "October 2020 - Present"]
+    ]
+}
