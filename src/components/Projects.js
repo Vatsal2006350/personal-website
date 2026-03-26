@@ -17,40 +17,42 @@ const Projects = ({ onCaseStudy }) => {
     return (
         <section className="projects" id="projects">
             <h2>Projects</h2>
-            <div className="projects-stack">
-                {projectKeys.map((key, i) => (
-                    <a
-                        className="project-card"
-                        href={data[key].link}
-                        target={data[key].caseStudy ? undefined : "_blank"}
-                        rel={data[key].caseStudy ? undefined : "noreferrer"}
-                        key={key}
-                        onClick={(e) => handleClick(key, e)}
-                    >
-                        <div className={`project-visual project-visual--${i + 1}`}>
-                            {data[key].imagePath ? (
+            <div className="bento-grid">
+                {projectKeys.map((key, i) => {
+                    const project = data[key]
+                    const isLarge = i % 3 === 0
+                    const hasImage = project.imagePath
+
+                    return (
+                        <a
+                            className={`bento-card ${isLarge ? 'bento-card--large' : 'bento-card--small'} ${hasImage ? 'bento-card--has-image' : ''}`}
+                            href={project.link}
+                            target={project.caseStudy ? undefined : "_blank"}
+                            rel={project.caseStudy ? undefined : "noreferrer"}
+                            key={key}
+                            onClick={(e) => handleClick(key, e)}
+                        >
+                            {hasImage && (
                                 <img
-                                    src={images(data[key].imagePath)}
+                                    src={images(project.imagePath)}
                                     alt={key}
-                                    className="project-img"
+                                    className="bento-card-img"
                                 />
-                            ) : (
-                                <div className="project-placeholder">
-                                    <span className="project-placeholder-name">{key}</span>
-                                </div>
                             )}
-                            <div className="project-overlay">
-                                <span className="project-arrow">
-                                    {data[key].caseStudy ? '→' : '↗'}
+                            <div className="bento-card-content">
+                                <span className="bento-card-tag">{project.tools}</span>
+                                <h3 className="bento-card-title">{key}</h3>
+                                <p className="bento-card-desc">{project.tagline}</p>
+                                <span className="bento-card-action">
+                                    {project.caseStudy ? 'View Case Study' : 'View Project'}
+                                    <span className="bento-card-arrow">
+                                        {project.caseStudy ? '→' : '↗'}
+                                    </span>
                                 </span>
                             </div>
-                        </div>
-                        <div className="project-info">
-                            <span className="project-name">{key}</span>
-                            <span className="project-tagline">{data[key].tagline}</span>
-                        </div>
-                    </a>
-                ))}
+                        </a>
+                    )
+                })}
             </div>
         </section>
     )

@@ -1,34 +1,64 @@
 .banner {
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 160px 0 140px;
-    position: relative;
+    justify-content: center;
+    padding: 160px 0 80px;
+    overflow: hidden;
 }
 
-.banner-inner {
-    max-width: var(--container-max, 1080px);
-    margin: 0 auto;
-    padding: 0 56px;
+/* ── Background refraction blurs ── */
+.banner-refraction {
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    background: rgba(255, 255, 255, 0.05);
+    filter: blur(120px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.banner-refraction--left {
+    top: -10%;
+    left: -10%;
+}
+
+.banner-refraction--right {
+    bottom: -10%;
+    right: -10%;
+}
+
+/* ── Split layout: text left, photo right ── */
+.banner-split {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
     width: 100%;
+    padding: 0 56px;
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+/* ── Text side ── */
+.banner-text {
+    flex: 1;
+    min-width: 0;
 }
 
 .banner-headline {
     font-family: var(--font-sans);
-    font-size: clamp(52px, 7.5vw, 96px);
+    font-size: clamp(44px, 5vw, 68px);
     font-weight: 700;
-    letter-spacing: -0.045em;
-    line-height: 1.05;
-    color: #ffffff;
-    margin-bottom: 40px;
-    max-width: 900px;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 32px;
 }
 
-.banner-headline em {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.55);
+.banner-rotating {
+    color: rgba(255, 255, 255, 0.70);
+    font-weight: 500;
 }
 
 .banner-headline .cursor {
@@ -37,6 +67,9 @@
     font-weight: 200;
     font-family: var(--font-sans);
     font-style: normal;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.12);
 }
 
 @keyframes cursor-blink {
@@ -45,11 +78,11 @@
 }
 
 .banner-sub {
-    font-size: 17px;
-    color: rgba(255, 255, 255, 0.32);
-    line-height: 1.85;
-    max-width: 540px;
-    margin-bottom: 48px;
+    font-size: 18px;
+    color: var(--on-surface-variant, #c6c6c6);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 40px;
     font-weight: 400;
 }
 
@@ -65,22 +98,26 @@
     align-items: center;
     gap: 6px;
     padding: 12px 28px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--bg-primary);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bg-primary, #131313);
     background: #ffffff;
     border-radius: 100px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration: none;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     border: none;
 }
 
 .btn-primary:hover {
-    background: rgba(255, 255, 255, 0.88);
+    background: #d4d4d4;
     transform: translateY(-2px);
-    color: var(--bg-primary);
+    color: var(--bg-primary, #131313);
     text-decoration: none;
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
 }
 
 .btn-secondary {
@@ -88,15 +125,15 @@
     align-items: center;
     gap: 6px;
     padding: 12px 28px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.50);
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.10);
     border-radius: 100px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration: none;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
 }
 
 .btn-secondary:hover {
@@ -107,29 +144,118 @@
     text-decoration: none;
 }
 
+/* ── Portrait photo side ── */
+.banner-portrait {
+    flex-shrink: 0;
+    width: 360px;
+}
+
+.banner-portrait-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.banner-portrait-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(0.15) contrast(1.05);
+    transition: transform 0.7s ease;
+}
+
+.banner-portrait-card:hover img {
+    transform: scale(1.05);
+}
+
+.banner-portrait-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg-primary, #131313) 0%, transparent 40%);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.banner-portrait-label {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    z-index: 2;
+}
+
+.banner-portrait-tag {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.60);
+    margin-bottom: 4px;
+}
+
+.banner-portrait-title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+}
+
+/* ── Responsive ── */
 @media (max-width: 1024px) {
-    .banner-inner {
+    .banner-split {
         padding: 0 32px;
+        gap: 48px;
+    }
+
+    .banner-portrait {
+        width: 300px;
     }
 }
 
 @media (max-width: 768px) {
     .banner {
-        padding: 140px 0 80px;
+        padding: 140px 0 60px;
     }
 
-    .banner-inner {
+    .banner-split {
+        flex-direction: column;
         padding: 0 24px;
+        text-align: center;
+        gap: 48px;
+    }
+
+    .banner-text {
+        order: 1;
+    }
+
+    .banner-portrait {
+        order: 0;
+        width: 240px;
+    }
+
+    .banner-portrait-card {
+        aspect-ratio: 3 / 4;
+        border-radius: 12px;
     }
 
     .banner-headline {
-        font-size: clamp(38px, 11vw, 56px);
-        margin-bottom: 32px;
+        font-size: clamp(36px, 10vw, 52px);
+        margin-bottom: 24px;
+        line-height: 1.1;
     }
 
     .banner-sub {
-        font-size: 15px;
-        margin-bottom: 36px;
+        font-size: 16px;
+        margin-bottom: 32px;
+        max-width: 100%;
+    }
+
+    .banner-actions {
+        justify-content: center;
     }
 
     .btn-primary,

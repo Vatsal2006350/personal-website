@@ -1,117 +1,203 @@
-/* ── Floating Pill — collapses at top, expands on scroll ── */
+/* ── Desktop Floating Pill Nav ── */
 
-.pill-nav {
+.nav-pill {
     position: fixed;
-    top: 20px;
+    top: 24px;
     left: 50%;
     transform: translateX(-50%);
+    width: 90%;
+    max-width: 900px;
     z-index: 1000;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.pill-inner {
+.nav-pill-inner {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 5px 5px;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(20px) saturate(1.8);
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    justify-content: space-between;
+    padding: 12px 12px 12px 16px;
+    background: rgba(19, 19, 19, 0.80);
+    backdrop-filter: blur(24px) saturate(1.8);
+    -webkit-backdrop-filter: blur(24px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.10);
     border-radius: 100px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── VS monogram ── */
-.pill-vs {
-    width: 32px;
-    height: 32px;
+.nav-pill.scrolled .nav-pill-inner {
+    background: rgba(19, 19, 19, 0.92);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Left group: progress ring + logo ── */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* ── Scroll Progress Ring ── */
+.nav-progress-ring {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    font-family: var(--font-serif);
-    font-size: 12px;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    transition: all 0.25s ease;
-    flex-shrink: 0;
-    letter-spacing: 0.02em;
+    width: 28px;
+    height: 28px;
 }
 
-.pill-vs:hover {
-    background: rgba(255, 255, 255, 0.12);
-    color: #fff;
+.nav-progress-stroke {
+    transform: rotate(-90deg);
+    transform-origin: center;
+    transition: stroke-dashoffset 0.12s ease-out;
 }
 
-/* ── Scroll progress indicator (right side) ── */
-.pill-indicator {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    flex-shrink: 0;
-    position: relative;
-    transition: border-color 0.25s ease;
-}
-
-.pill-indicator::after {
-    content: '';
+.nav-progress-dot {
     position: absolute;
-    inset: 4px;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: rgba(14, 14, 14, 0.9);
+    background: #ffffff;
+    transform: translate(-50%, -50%);
+    animation: progress-dot-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── Nav links — hidden by default, shown on scroll ── */
-.pill-links {
+@keyframes progress-dot-in {
+    from { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* ── Logo ── */
+.nav-logo {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.nav-logo:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* ── Nav Links ── */
+.nav-links {
     display: flex;
     align-items: center;
-    gap: 0;
-    max-width: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-width 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.4s ease,
-                padding 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    padding: 0;
+    gap: 4px;
 }
 
-.pill-links a {
-    font-size: 13px;
-    font-weight: 450;
-    color: rgba(255, 255, 255, 0.45);
-    padding: 7px 16px;
+.nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.50);
+    padding: 8px 14px;
     border-radius: 100px;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: color 0.3s ease, background 0.3s ease;
     white-space: nowrap;
+    letter-spacing: -0.01em;
 }
 
-.pill-links a:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.07);
+.nav-links a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
 }
 
-/* ── Expanded state (on scroll) ── */
-.pill-nav.scrolled .pill-inner {
-    padding: 5px 5px;
-    background: rgba(14, 14, 14, 0.8);
-    border-color: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+/* ── Resume Button ── */
+.nav-resume-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bg-primary, #131313);
+    background: #ffffff;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    letter-spacing: -0.01em;
 }
 
-.pill-nav.scrolled .pill-links {
-    max-width: 300px;
-    opacity: 1;
-    padding: 0 4px;
+.nav-resume-btn:hover {
+    background: #d4d4d4;
+    color: var(--bg-primary, #131313);
+    text-decoration: none;
 }
 
-/* indicator inner dot inherits from conic-gradient on parent */
+.nav-resume-btn:active {
+    transform: scale(0.95);
+}
 
-/* ── Mobile toggle ── */
+/* ── Mobile Bottom Nav ── */
+.nav-bottom-mobile {
+    display: none;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(19, 19, 19, 0.90);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px;
+    gap: 4px;
+}
+
+.nav-bottom-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.40);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-bottom-item.active {
+    background: #ffffff;
+    color: #131313;
+}
+
+.nav-bottom-item:not(.active):hover {
+    color: #ffffff;
+}
+
+/* ── Mobile Progress Bar ── */
+.nav-mobile-progress {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.60);
+    transform-origin: left;
+    z-index: 1001;
+    transition: transform 0.12s ease-out;
+}
+
+/* ── Mobile toggle (hamburger) ── */
 .mob-toggle {
     display: none;
     position: fixed;
@@ -121,8 +207,7 @@
     width: 40px;
     height: 40px;
     padding: 0;
-    border: none;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(19, 19, 19, 0.80);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 50%;
@@ -158,7 +243,7 @@
     left: 50%;
     transform: translateX(-50%);
     min-width: 200px;
-    background: rgba(10, 10, 10, 0.96);
+    background: rgba(19, 19, 19, 0.96);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -194,20 +279,20 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-    .pill-nav {
-        top: 16px;
+    .nav-pill {
+        display: none;
+    }
+
+    .nav-bottom-mobile {
+        display: flex;
+    }
+
+    .nav-mobile-progress {
+        display: block;
     }
 
     .mob-toggle {
         display: flex;
         top: 16px;
-    }
-
-    .pill-links {
-        display: none !important;
-    }
-
-    .pill-indicator {
-        display: none;
     }
 }

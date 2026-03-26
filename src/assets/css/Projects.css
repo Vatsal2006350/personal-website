@@ -2,145 +2,171 @@
     padding: var(--section-padding) 0;
 }
 
-.projects-stack {
+/* ── Bento Grid ── */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+}
+
+/* ── Card base ── */
+.bento-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 48px;
-}
-
-.project-card {
+    justify-content: flex-end;
+    min-height: 420px;
     text-decoration: none;
-    display: block;
     cursor: pointer;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.05));
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.project-visual {
-    border-radius: 20px;
-    overflow: hidden;
-    aspect-ratio: 16 / 9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+.bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+    text-decoration: none;
 }
 
-/* Muted, sophisticated gradients */
-.project-visual--1 { background: linear-gradient(135deg, #2d1b4e 0%, #1a1a2e 100%); }
-.project-visual--2 { background: linear-gradient(135deg, #1a2332 0%, #0d1b2a 100%); }
-.project-visual--3 { background: linear-gradient(135deg, #1e3a2f 0%, #0a1a14 100%); }
-.project-visual--4 { background: linear-gradient(135deg, #2a1f1f 0%, #1a1215 100%); }
-.project-visual--5 { background: linear-gradient(135deg, #1f2937 0%, #111827 100%); }
-.project-visual--6 { background: linear-gradient(135deg, #1e1e2e 0%, #151520 100%); }
+/* ── Size variants ── */
+.bento-card--large {
+    grid-column: span 8;
+    min-height: 500px;
+}
 
-/* Hover overlay */
-.project-overlay {
+.bento-card--small {
+    grid-column: span 4;
+    min-height: 500px;
+}
+
+/* ── Background gradients (when no image) ── */
+.bento-card:not(.bento-card--has-image) {
+    background: var(--surface-container, #1f1f1f);
+}
+
+.bento-card--large:nth-child(1) { background: linear-gradient(135deg, #1e1e1e 0%, #1a1a1a 100%); }
+.bento-card--small:nth-child(2) { background: var(--surface-container-low, #1b1b1b); }
+.bento-card--large:nth-child(4) { background: linear-gradient(135deg, #1c1c1c 0%, #181818 100%); }
+.bento-card--small:nth-child(3) { background: var(--surface-container-high, #2a2a2a); }
+
+/* ── Image ── */
+.bento-card-img {
     position: absolute;
     inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 2;
-}
-
-.project-card:hover .project-overlay {
-    opacity: 1;
-}
-
-.project-arrow {
-    width: 52px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px);
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover .project-arrow {
-    transform: scale(1.1);
-}
-
-.project-card:hover .project-visual {
-    transform: translateY(-4px);
-    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.4);
-}
-
-.project-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    object-position: 70% center;
+    opacity: 0.4;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.project-card:hover .project-img {
-    transform: scale(1.03);
+.bento-card:hover .bento-card-img {
+    transform: scale(1.05);
 }
 
-.project-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+/* ── Content overlay ── */
+.bento-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 32px;
 }
 
-.project-placeholder-name {
-    font-family: var(--font-serif, 'DM Serif Display', serif);
-    font-size: 48px;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.6);
-    letter-spacing: -0.02em;
-    text-align: center;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+.bento-card-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.40);
+    margin-bottom: 16px;
 }
 
-.project-card:hover .project-placeholder-name {
-    transform: scale(1.04);
+.bento-card-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+    line-height: 1.1;
 }
 
-.project-info {
-    padding: 20px 4px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+.bento-card--small .bento-card-title {
+    font-size: 24px;
 }
 
-.project-name {
-    font-weight: 600;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.8);
+.bento-card-desc {
+    font-size: 15px;
+    color: var(--on-surface-variant, #c6c6c6);
+    line-height: 1.6;
+    max-width: 480px;
+    margin-bottom: 20px;
 }
 
-.project-tagline {
+.bento-card--small .bento-card-desc {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.3);
-    line-height: 1.5;
+}
+
+.bento-card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    transition: gap 0.3s ease;
+}
+
+.bento-card:hover .bento-card-action {
+    gap: 12px;
+}
+
+.bento-card-arrow {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.bento-card:hover .bento-card-arrow {
+    transform: translateX(2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .bento-card--large,
+    .bento-card--small {
+        grid-column: span 6;
+        min-height: 380px;
+    }
 }
 
 @media (max-width: 768px) {
-    .projects-stack {
-        gap: 36px;
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 
-    .project-visual {
-        aspect-ratio: 3 / 2;
-        border-radius: 16px;
+    .bento-card--large,
+    .bento-card--small {
+        grid-column: span 1;
+        min-height: 320px;
     }
 
-    .project-placeholder-name {
-        font-size: 32px;
+    .bento-card-content {
+        padding: 24px;
     }
 
-    .project-info {
-        padding: 14px 2px 0;
+    .bento-card-title {
+        font-size: 22px;
+    }
+
+    .bento-card--small .bento-card-title {
+        font-size: 20px;
+    }
+
+    .bento-card-desc {
+        font-size: 14px;
     }
 }

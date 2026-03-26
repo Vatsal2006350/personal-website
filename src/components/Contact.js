@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
 import '../assets/css/Contact.css';
 
@@ -11,7 +10,7 @@ const Contact = () => {
     };
 
     const [formDetails, setFormDetails] = useState(formInitialDetails);
-    const [buttonText, setButtonText] = useState('Send');
+    const [buttonText, setButtonText] = useState('Send Message');
     const [status, setStatus] = useState({});
     const [errors, setErrors] = useState({});
     const [focused, setFocused] = useState(null);
@@ -40,13 +39,13 @@ const Contact = () => {
             setButtonText('Sending...');
             emailjs.sendForm('service_t3aguuo', 'template_eej5egu', form.current, 'dnofV-yc9OTYCzlpD')
                 .then((result) => {
-                    setStatus({ success: true, message: 'Message sent!' });
-                    setButtonText('Send');
+                    setStatus({ success: true, message: 'Message sent successfully!' });
+                    setButtonText('Send Message');
                     setFormDetails(formInitialDetails);
                 })
                 .catch((error) => {
                     setStatus({ success: false, message: 'Failed to send. Please try again.' });
-                    setButtonText('Send');
+                    setButtonText('Send Message');
                 });
         } else {
             setStatus({ success: false, message: 'Please fill in all fields.' });
@@ -79,21 +78,57 @@ const Contact = () => {
 
     return (
         <section className="contact-section" id="contact">
-            <Container>
-                <h2>Get in Touch</h2>
-                <hr className="star-divider star-divider--light" />
-                <Row className="align-items-start">
-                    <Col size={12} md={5}>
-                        <div className="contact-info">
-                            <p>Open to new opportunities, collaborations, and conversations. Reach out — I'll get back to you.</p>
-                            <ul>
-                                <li>svatsal@umich.edu</li>
-                                <li>(+1) 734-834-2993</li>
-                            </ul>
-                        </div>
-                    </Col>
-                    <Col size={12} md={7}>
-                        <form ref={form} onSubmit={sendEmail} className="floating-label-form">
+            {/* Headline */}
+            <div className="contact-hero">
+                <h1 className="contact-headline hero-text-gradient">Let's connect.</h1>
+                <p className="contact-sub">Interested in product, engineering, or leadership roles — always open to conversations with teams building at scale.</p>
+            </div>
+
+            {/* Two-column layout: Info + Form */}
+            <div className="contact-grid">
+                {/* Left: Info */}
+                <div className="contact-info">
+                    <div className="contact-info-block">
+                        <span className="contact-info-label">Email</span>
+                        <a className="contact-info-value" href="mailto:svatsal@umich.edu">
+                            svatsal@umich.edu
+                        </a>
+                    </div>
+
+                    <div className="contact-info-block">
+                        <span className="contact-info-label">Phone</span>
+                        <a className="contact-info-value" href="tel:+17348342993">
+                            (+1) 734-834-2993
+                        </a>
+                    </div>
+
+                    <div className="contact-info-block">
+                        <span className="contact-info-label">Location</span>
+                        <span className="contact-info-value">Ann Arbor, Michigan</span>
+                    </div>
+
+                    <div className="contact-info-block">
+                        <span className="contact-info-label">Availability</span>
+                        <span className="contact-info-value contact-info-avail">
+                            <span className="contact-avail-dot" />
+                            Open to opportunities
+                        </span>
+                    </div>
+
+                    <div className="contact-socials">
+                        <a href="https://www.linkedin.com/in/vatsal-shah-a7a0b1255/" target="_blank" rel="noreferrer" className="contact-social-link">
+                            LinkedIn <span>↗</span>
+                        </a>
+                        <a href="https://github.com/Vatsal2006350" target="_blank" rel="noreferrer" className="contact-social-link">
+                            GitHub <span>↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                {/* Right: Form */}
+                <div className="contact-form-wrap">
+                    <form ref={form} onSubmit={sendEmail} className="contact-form">
+                        <div className="contact-form-row">
                             <FloatField
                                 name="from_name"
                                 label="Name"
@@ -114,25 +149,25 @@ const Contact = () => {
                                 onFocus={setFocused}
                                 onBlur={() => setFocused(null)}
                             />
-                            <FloatField
-                                name="message"
-                                label="Message"
-                                placeholder="Your message..."
-                                value={formDetails.message}
-                                error={errors.message}
-                                onChange={onFormUpdate}
-                                onFocus={setFocused}
-                                onBlur={() => setFocused(null)}
-                                multiline
-                            />
-                            <button type="submit"><span>{buttonText}</span></button>
-                        </form>
-                        {status.message && (
-                            <p className={status.success === false ? 'danger' : 'success'}>{status.message}</p>
-                        )}
-                    </Col>
-                </Row>
-            </Container>
+                        </div>
+                        <FloatField
+                            name="message"
+                            label="Message"
+                            placeholder="Tell me about the role or opportunity..."
+                            value={formDetails.message}
+                            error={errors.message}
+                            onChange={onFormUpdate}
+                            onFocus={setFocused}
+                            onBlur={() => setFocused(null)}
+                            multiline
+                        />
+                        <button type="submit"><span>{buttonText}</span></button>
+                    </form>
+                    {status.message && (
+                        <p className={status.success === false ? 'danger' : 'success'}>{status.message}</p>
+                    )}
+                </div>
+            </div>
         </section>
     );
 };

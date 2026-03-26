@@ -1,21 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-tertiary: #181818;
-  --bg-card: #141414;
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.42);
-  --text-tertiary: rgba(255, 255, 255, 0.22);
+  --bg-primary: #131313;
+  --bg-secondary: #1b1b1b;
+  --bg-tertiary: #1f1f1f;
+  --bg-card: #1f1f1f;
+  --surface-container: #1f1f1f;
+  --surface-container-low: #1b1b1b;
+  --surface-container-high: #2a2a2a;
+  --surface-container-highest: #353535;
+  --surface-bright: #393939;
+  --text-primary: #e2e2e2;
+  --text-secondary: rgba(255, 255, 255, 0.50);
+  --text-tertiary: rgba(255, 255, 255, 0.30);
+  --text-muted: rgba(255, 255, 255, 0.18);
   --accent: #ffffff;
-  --border-subtle: rgba(255, 255, 255, 0.06);
+  --on-surface-variant: #c6c6c6;
+  --outline: #919191;
+  --outline-variant: #474747;
+  --border-subtle: rgba(255, 255, 255, 0.05);
   --border-light: rgba(255, 255, 255, 0.10);
   --section-padding: 160px;
-  --container-max: 1080px;
+  --container-max: 1200px;
   --transition-fast: 0.2s ease;
   --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  --font-serif: 'DM Serif Display', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -56,6 +64,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: var(--text-primary);
+  font-family: var(--font-sans);
 }
 
 h2 {
@@ -65,7 +74,7 @@ h2 {
   text-transform: uppercase;
   margin-bottom: 56px;
   text-align: left;
-  color: rgba(255, 255, 255, 0.18);
+  color: var(--text-muted);
 }
 
 p, a, li, button, ul {
@@ -111,6 +120,22 @@ input:focus, textarea:focus, select:focus {
 
 .body {
   padding: 0;
+}
+
+/* ── Glass card ── */
+.glass-card {
+  background: rgba(31, 31, 31, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ── Hero text gradient ── */
+.hero-text-gradient {
+  background: linear-gradient(180deg, #FFFFFF 0%, #919191 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding-bottom: 0.12em;
 }
 
 .button-link {
@@ -172,8 +197,77 @@ p.danger {
 }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.15);
   color: #ffffff;
+}
+
+/* ── Global Ambient Background ── */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: ambient-drift ease-in-out infinite;
+}
+
+.ambient-dot--glow {
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.25),
+              0 0 16px 4px rgba(255, 255, 255, 0.08);
+}
+
+@keyframes ambient-drift {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(8px, -22px); }
+  40% { transform: translate(-12px, -10px); }
+  60% { transform: translate(6px, -30px); }
+  80% { transform: translate(-8px, -14px); }
+}
+
+.ambient-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 240px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  animation: ambient-ring-rotate 60s linear infinite;
+  box-shadow: 0 0 30px 2px rgba(255, 255, 255, 0.03),
+              inset 0 0 30px 2px rgba(255, 255, 255, 0.02);
+}
+
+.ambient-ring--2 {
+  width: 520px;
+  height: 180px;
+  border-color: rgba(255, 255, 255, 0.07);
+  transform: translate(-50%, -50%) rotate(35deg);
+  animation-duration: 80s;
+  animation-direction: reverse;
+  box-shadow: 0 0 24px 2px rgba(255, 255, 255, 0.025),
+              inset 0 0 24px 2px rgba(255, 255, 255, 0.015);
+}
+
+.ambient-ring--3 {
+  width: 920px;
+  height: 320px;
+  border-color: rgba(255, 255, 255, 0.06);
+  transform: translate(-50%, -50%) rotate(8deg);
+  animation-duration: 100s;
+  box-shadow: 0 0 40px 4px rgba(255, 255, 255, 0.02),
+              inset 0 0 40px 4px rgba(255, 255, 255, 0.01);
+}
+
+@keyframes ambient-ring-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* ── Scroll Reveal ── */
@@ -189,6 +283,34 @@ p.danger {
   transform: translateY(0);
 }
 
+/* ── Playground Page Hero ── */
+.playground-hero {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 180px 56px 0;
+}
+
+.playground-hero-inner {
+  max-width: 800px;
+}
+
+.playground-headline {
+  font-size: clamp(56px, 10vw, 96px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+}
+
+.playground-sub {
+  font-size: 20px;
+  color: var(--on-surface-variant);
+  max-width: 560px;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   :root {
@@ -198,6 +320,14 @@ p.danger {
   .box {
     padding: 0 32px;
   }
+
+  .playground-hero {
+    padding: 160px 32px 0;
+  }
+
+  .ambient-ring { width: 520px; height: 180px; }
+  .ambient-ring--2 { width: 380px; height: 130px; }
+  .ambient-ring--3 { width: 680px; height: 240px; }
 }
 
 @media (max-width: 768px) {
@@ -208,4 +338,20 @@ p.danger {
   .box {
     padding: 0 20px;
   }
+
+  .playground-hero {
+    padding: 140px 20px 0;
+  }
+
+  .playground-headline {
+    font-size: clamp(40px, 12vw, 64px);
+  }
+
+  .playground-sub {
+    font-size: 16px;
+  }
+
+  .ambient-ring { width: 360px; height: 120px; }
+  .ambient-ring--2 { width: 270px; height: 90px; }
+  .ambient-ring--3 { width: 460px; height: 160px; }
 }

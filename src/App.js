@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import NavBar from './components/NavBar.js';
 import Banner from './components/Banner.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,6 +17,21 @@ import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [page, setPage] = useState('home')
+
+  const particles = useMemo(() =>
+    Array.from({ length: 40 }, (_, i) => {
+      const isBright = i % 6 === 0
+      return {
+        left: `${(i * 37 + 13) % 97 + 1}%`,
+        top: `${(i * 53 + 7) % 93 + 3}%`,
+        delay: `${(i * 1.7) % 12}s`,
+        duration: `${10 + (i * 1.3) % 8}s`,
+        size: isBright ? `${3 + (i % 3)}px` : `${1.5 + (i % 4) * 0.7}px`,
+        opacity: isBright ? 0.3 + (i % 3) * 0.1 : 0.07 + (i % 6) * 0.04,
+        glow: isBright,
+      }
+    })
+  , [])
 
   const openPage = (name) => {
     window.history.pushState({ page: name }, '', `#${name}`)
@@ -60,15 +75,25 @@ function App() {
       case 'geoomnii': return <GeoomniiCase onBack={goHome} />
       case 'digipals': return <DigiPalsCase onBack={goHome} />
       case 'about': return <AboutPage onBack={goHome} />
-      default: return (
+      case 'playground': return (
         <>
-          <Banner />
-          <section className="body">
-            <div className="box">
-              <div className="reveal"><Projects onCaseStudy={openPage} /></div>
-              <div className="reveal"><Entrepreneurship /></div>
+          <section className="playground-hero">
+            <div className="playground-hero-inner">
+              <h1 className="playground-headline hero-text-gradient">Playground</h1>
+              <p className="playground-sub">Beyond the code — ventures, events, community, and everything in between.</p>
             </div>
           </section>
+          <Entrepreneurship />
+          <Footer />
+          <ScrollToTop />
+        </>
+      )
+      default: return (
+        <>
+          <Banner onCaseStudy={openPage} />
+          <div className="box">
+            <div className="reveal"><Projects onCaseStudy={openPage} /></div>
+          </div>
           <div className="reveal"><Contact /></div>
           <Footer />
           <ScrollToTop />
@@ -79,6 +104,28 @@ function App() {
 
   return (
     <div className="App">
+      {/* Global ambient background — visible across all pages */}
+      <div className="ambient-bg">
+        {particles.map((p, i) => (
+          <span
+            key={i}
+            className={`ambient-dot${p.glow ? ' ambient-dot--glow' : ''}`}
+            style={{
+              left: p.left,
+              top: p.top,
+              width: p.size,
+              height: p.size,
+              opacity: p.opacity,
+              animationDelay: p.delay,
+              animationDuration: p.duration,
+            }}
+          />
+        ))}
+        <div className="ambient-ring" />
+        <div className="ambient-ring ambient-ring--2" />
+        <div className="ambient-ring ambient-ring--3" />
+      </div>
+
       <NavBar onNavigate={openPage} />
       {renderPage()}
       <Analytics />
