@@ -7,13 +7,13 @@
         "link": "https://www.linkedin.com/posts/vatsal-shah0914_my-founder-just-yelled-at-me-you-need-activity-7354768204876935168-kuVm/",
         "caseStudy": "narrative"
     },
-    "TwinMind": {
-        "tagline": "Founding Product Lead. Grew users 10K → 100K in 3 months. $60M valuation.",
-        "tools": "React, Python, Postgres, Groq API, Figma",
-        "description": "AI second brain startup. First founding member — owned product, engineering, and growth.",
+    "DigiPals": {
+        "tagline": "Product Engineer at a YC F25 startup. The future of Social in the age of AI.",
+        "tools": "React, TypeScript, AI/ML, Mobile",
+        "description": "AI-native social operating system. Building ambient AI agents for group chats.",
         "imagePath": null,
         "link": "#",
-        "caseStudy": "twinmind"
+        "caseStudy": "digipals"
     },
     "Geoomnii": {
         "tagline": "Technical Product Manager. Led e-commerce platform delivery. 12K sales, 40% cost reduction.",
@@ -23,12 +23,12 @@
         "link": "#",
         "caseStudy": "geoomnii"
     },
-    "DigiPals": {
-        "tagline": "Product Engineer at a YC F25 startup. The future of Social in the age of AI.",
-        "tools": "React, TypeScript, AI/ML, Mobile",
-        "description": "AI-native social operating system. Building ambient AI agents for group chats.",
-        "imagePath": null,
+    "TwinMind": {
+        "tagline": "Founding Product Lead. Grew users 10K → 100K in 3 months. $60M valuation.",
+        "tools": "React, Python, Postgres, Groq API, Figma",
+        "description": "AI second brain startup. First founding member — owned product, engineering, and growth.",
+        "imagePath": "./TwinMind.png",
         "link": "#",
-        "caseStudy": "digipals"
+        "caseStudy": "twinmind"
     }
 }
