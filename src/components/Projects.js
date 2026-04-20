@@ -25,7 +25,7 @@ const Projects = ({ onCaseStudy }) => {
 
                     return (
                         <a
-                            className={`bento-card ${isLarge ? 'bento-card--large' : 'bento-card--small'} ${hasImage ? 'bento-card--has-image' : ''}`}
+                            className={`bento-card bento-card--${key.toLowerCase()} ${isLarge ? 'bento-card--large' : 'bento-card--small'} ${hasImage ? 'bento-card--has-image' : ''}`}
                             href={project.link}
                             target={project.caseStudy ? undefined : "_blank"}
                             rel={project.caseStudy ? undefined : "noreferrer"}
@@ -36,7 +36,7 @@ const Projects = ({ onCaseStudy }) => {
                                 <img
                                     src={images(project.imagePath)}
                                     alt={key}
-                                    className="bento-card-img"
+                                    className={`bento-card-img bento-card-img--${key.toLowerCase()}`}
                                 />
                             )}
                             <div className="bento-card-content">

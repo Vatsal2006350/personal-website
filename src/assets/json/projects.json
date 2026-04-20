@@ -11,7 +11,7 @@
         "tagline": "Product Engineer at a YC F25 startup. The future of Social in the age of AI.",
         "tools": "React, TypeScript, AI/ML, Mobile",
         "description": "AI-native social operating system. Building ambient AI agents for group chats.",
-        "imagePath": null,
+        "imagePath": "./DigiPals.png",
         "link": "#",
         "caseStudy": "digipals"
     },
@@ -19,7 +19,7 @@
         "tagline": "Technical Product Manager. Led e-commerce platform delivery. 12K sales, 40% cost reduction.",
         "tools": "Jira, SQL, Figma, Excel, Miro",
         "description": "E-commerce platform in Dubai. Led delivery across catalog, payments, and operations.",
-        "imagePath": null,
+        "imagePath": "./Geoomnii.png",
         "link": "#",
         "caseStudy": "geoomnii"
     },

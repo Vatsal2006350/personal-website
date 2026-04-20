@@ -394,6 +394,78 @@
     background: rgba(255, 255, 255, 0.10);
 }
 
+/* ── Awards & Recognition ── */
+.ap-awards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ap-award-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    text-decoration: none !important;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.ap-award-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.10);
+    transform: translateY(-2px);
+    text-decoration: none !important;
+}
+
+.ap-award-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ap-award-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ap-award-info h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2px;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+.ap-award-info p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.50);
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.ap-award-arrow {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.ap-award-item:hover .ap-award-arrow {
+    color: rgba(255, 255, 255, 0.60);
+    transform: translate(2px, -2px);
+}
+
 /* ── CTA Section ── */
 .ap-cta {
     max-width: 1200px;

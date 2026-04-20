@@ -1,46 +1,95 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import '../assets/css/Entrepreneurship.css'
 import data from '../assets/json/entrepreneurship.json'
 
 const images = require.context('../assets/img/entrepreneurship', true)
 
 const Entrepreneurship = () => {
+    const gridRef = useRef(null)
+
+    useEffect(() => {
+        const cards = gridRef.current?.querySelectorAll('.pg-card')
+        if (!cards) return
+
+        const handleMouseMove = (e) => {
+            const rect = e.currentTarget.getBoundingClientRect()
+            const x = (e.clientX - rect.left) / rect.width - 0.5
+            const y = (e.clientY - rect.top) / rect.height - 0.5
+            e.currentTarget.style.setProperty('--rx', `${y * -8}deg`)
+            e.currentTarget.style.setProperty('--ry', `${x * 8}deg`)
+            e.currentTarget.style.setProperty('--glow-x', `${(x + 0.5) * 100}%`)
+            e.currentTarget.style.setProperty('--glow-y', `${(y + 0.5) * 100}%`)
+        }
+
+        const handleMouseLeave = (e) => {
+            e.currentTarget.style.setProperty('--rx', '0deg')
+            e.currentTarget.style.setProperty('--ry', '0deg')
+        }
+
+        cards.forEach((card) => {
+            card.addEventListener('mousemove', handleMouseMove)
+            card.addEventListener('mouseleave', handleMouseLeave)
+        })
+
+        return () => {
+            cards.forEach((card) => {
+                card.removeEventListener('mousemove', handleMouseMove)
+                card.removeEventListener('mouseleave', handleMouseLeave)
+            })
+        }
+    }, [])
+
     const ventureKeys = Object.keys(data)
 
     return (
-        <section className="entrepreneurship" id="entrepreneurship">
-            <h2>Entrepreneurship & Activism</h2>
-            <div className="ventures-layout">
-                <div className="ventures-header">
-                    <div className="ventures-header-title">
-                        <h3>Beyond the Code.</h3>
-                    </div>
-                    <div className="ventures-header-grid">
-                        {ventureKeys.map((key) => (
-                            <div className="venture-card-new" key={key}>
-                                <h4 className="venture-card-new-title">{key}</h4>
-                                <span className="venture-card-new-role">{data[key].role}</span>
-                                <p className="venture-card-new-desc">{data[key].description}</p>
-                                <a className="venture-card-new-link" href={data[key].link} target="_blank" rel="noreferrer">
-                                    Learn more →
-                                </a>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+        <section className="playground" id="entrepreneurship">
+            <div className="pg-grid" ref={gridRef}>
+                {ventureKeys.map((key, i) => {
+                    const venture = data[key]
+                    const hasImage = venture.imagePath
 
-                <div className="ventures-cards">
-                    {ventureKeys.map((key) => (
-                        <a className="venture-img-card" href={data[key].link} target="_blank" rel="noreferrer" key={key}>
-                            <img src={images(data[key].imagePath)} alt={key} />
-                            <div className="venture-img-card-overlay" />
-                            <div className="venture-img-card-label">
-                                <h4>{key}</h4>
-                                <span>{data[key].role}</span>
+                    return (
+                        <a
+                            className={`pg-card pg-card--${i}`}
+                            href={venture.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            key={key}
+                            style={{ animationDelay: `${i * 0.15}s` }}
+                        >
+                            <div className="pg-card-inner">
+                                {hasImage ? (
+                                    <img
+                                        className="pg-card-img"
+                                        src={images(venture.imagePath)}
+                                        alt={key}
+                                    />
+                                ) : (
+                                    <div className="pg-card-gradient" />
+                                )}
+                                <div className="pg-card-glow" />
+                                <div className="pg-card-overlay" />
+                                <div className="pg-card-content">
+                                    <span className="pg-card-role">{venture.role}</span>
+                                    <h3 className="pg-card-title">{key}</h3>
+                                    {venture.stat && (
+                                        <span className="pg-card-stat">{venture.stat}</span>
+                                    )}
+                                </div>
+                                <div className="pg-card-arrow-wrap">
+                                    <span className="pg-card-arrow">&#8599;</span>
+                                </div>
                             </div>
                         </a>
-                    ))}
-                </div>
+                    )
+                })}
+            </div>
+
+            {/* Floating ambient elements */}
+            <div className="pg-floaters" aria-hidden="true">
+                <div className="pg-floater pg-floater--1" />
+                <div className="pg-floater pg-floater--2" />
+                <div className="pg-floater pg-floater--3" />
             </div>
         </section>
     )

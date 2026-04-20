@@ -10,6 +10,10 @@ import logoApparel from '../assets/apparel group .png'
 import logoDigipals from '../assets/digipals .png'
 import logoStanford from '../assets/stanford-logo.avif'
 import skills from '../assets/json/skills.json'
+import iconBI from '../assets/img/awards/business-insider.png'
+import iconTOI from '../assets/img/awards/times-of-india.png'
+import iconPH from '../assets/img/awards/product-hunt.png'
+import iconSTEM from '../assets/img/awards/stem-mena.png'
 
 const AboutPage = ({ onBack }) => {
     const skillCategories = Object.keys(skills)
@@ -117,7 +121,7 @@ const AboutPage = ({ onBack }) => {
                                 <img className="ap-role-logo" src={logoNarrative} alt="Narrative" />
                                 <div className="ap-role-info">
                                     <h4>CPO & Co-Founder</h4>
-                                    <p>Narrative</p>
+                                    <p>Narrative (YC F25)</p>
                                 </div>
                                 <span className="ap-role-year">Jan 2024 — Jan 2025</span>
                             </div>
@@ -125,7 +129,7 @@ const AboutPage = ({ onBack }) => {
                                 <img className="ap-role-logo" src={logoDigipals} alt="DigiPals" />
                                 <div className="ap-role-info">
                                     <h4>Product Engineer</h4>
-                                    <p>DigiPals</p>
+                                    <p>DigiPals (YC F25)</p>
                                 </div>
                                 <span className="ap-role-year">Jan 2025 — Pres.</span>
                             </div>
@@ -163,66 +167,44 @@ const AboutPage = ({ onBack }) => {
                             </div>
                         </div>
 
-                        {/* Education */}
-                        <h3 className="ap-section-title" style={{ marginTop: '64px' }}>Education & Recognition</h3>
-                        <div className="ap-roles-list">
-                            <div className="ap-role-item">
-                                <div className="ap-role-dot" />
-                                <div className="ap-role-info">
-                                    <h4>University of Michigan</h4>
-                                    <p>BS Computer Science, LSA Honors</p>
-                                </div>
-                                <span className="ap-role-year">Sep 2024 — May 2028</span>
-                            </div>
-                            <div className="ap-role-item">
-                                <div className="ap-role-dot" />
-                                <div className="ap-role-info">
-                                    <h4>Y Combinator</h4>
-                                    <p>F25 Batch (DigiPals & Narrative)</p>
-                                </div>
-                                <span className="ap-role-year">Jan 2025</span>
-                            </div>
-                            <div className="ap-role-item">
-                                <div className="ap-role-dot" />
-                                <div className="ap-role-info">
-                                    <h4>Published Researcher</h4>
-                                    <p>NHSJS & Wolfram Community</p>
-                                </div>
-                                <span className="ap-role-year">Jun 2023 — Oct 2023</span>
-                            </div>
-                            <div className="ap-role-item">
-                                <div className="ap-role-dot" />
-                                <div className="ap-role-info">
-                                    <h4>TEDx Speaker</h4>
-                                    <p>TEDxYouth</p>
-                                </div>
-                                <span className="ap-role-year">2023</span>
-                            </div>
-                            <div className="ap-role-item">
-                                <div className="ap-role-dot" />
-                                <div className="ap-role-info">
-                                    <h4>Raffles World Academy</h4>
-                                    <p>International Baccalaureate Diploma</p>
-                                </div>
-                                <span className="ap-role-year">Sep 2020 — May 2024</span>
-                            </div>
-                        </div>
                     </div>
 
-                    {/* Skills Bento */}
+                    {/* Awards & Recognition */}
                     <div className="ap-skills">
-                        <h3 className="ap-section-title">Expertise</h3>
-                        <div className="ap-skills-grid">
-                            {skillCategories.map((cat) => (
-                                <div className="ap-skill-card" key={cat}>
-                                    <span className="ap-skill-card-label">{cat}</span>
-                                    <div className="ap-skill-tags">
-                                        {skills[cat].map(([name]) => (
-                                            <span className="ap-skill-tag" key={name}>{name}</span>
-                                        ))}
-                                    </div>
+                        <h3 className="ap-section-title">Awards & Recognition</h3>
+                        <div className="ap-awards-list">
+                            <a className="ap-award-item" href="https://www.businessinsider.com/twinmind-chatgpt-former-google-x-team-builds-ai-assistant-2024-11" target="_blank" rel="noreferrer">
+                                <img className="ap-award-icon" src={iconBI} alt="Business Insider" />
+                                <div className="ap-award-info">
+                                    <h4>Featured in Business Insider</h4>
+                                    <p>TwinMind AI assistant coverage</p>
                                 </div>
-                            ))}
+                                <span className="ap-award-arrow">↗</span>
+                            </a>
+                            <a className="ap-award-item" href="https://timesofindia.indiatimes.com/life-style/spotlight/vatsal-shahs-new-book-rebirth-of-strength-provides-a-glimpse-into-his-inspirational-journey/articleshow/106507239.cms" target="_blank" rel="noreferrer">
+                                <img className="ap-award-icon" src={iconTOI} alt="Times of India" />
+                                <div className="ap-award-info">
+                                    <h4>Featured in Times of India</h4>
+                                    <p>Book — Rebirth of Strength</p>
+                                </div>
+                                <span className="ap-award-arrow">↗</span>
+                            </a>
+                            <a className="ap-award-item" href="https://teachmiddleeastmag.com/stem-mena-awards-2023-winners-announced/" target="_blank" rel="noreferrer">
+                                <img className="ap-award-icon" src={iconSTEM} alt="STEM MENA" />
+                                <div className="ap-award-info">
+                                    <h4>Best STEM MENA Award</h4>
+                                    <p>Winner — 2023</p>
+                                </div>
+                                <span className="ap-award-arrow">↗</span>
+                            </a>
+                            <a className="ap-award-item" href="https://www.producthunt.com/products/twinmind/launches/twinmind" target="_blank" rel="noreferrer">
+                                <img className="ap-award-icon" src={iconPH} alt="Product Hunt" />
+                                <div className="ap-award-info">
+                                    <h4>#2 Product of the Day</h4>
+                                    <p>TwinMind on Product Hunt</p>
+                                </div>
+                                <span className="ap-award-arrow">↗</span>
+                            </a>
                         </div>
                     </div>
                 </div>

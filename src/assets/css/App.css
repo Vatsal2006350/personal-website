@@ -287,7 +287,7 @@ p.danger {
 .playground-hero {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 180px 56px 0;
+  padding: 180px 56px 80px;
 }
 
 .playground-hero-inner {
