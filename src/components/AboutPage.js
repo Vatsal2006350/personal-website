@@ -9,15 +9,12 @@ import logoGeoomnii from '../assets/geoomnii logo .jpeg'
 import logoApparel from '../assets/apparel group .png'
 import logoDigipals from '../assets/digipals .png'
 import logoStanford from '../assets/stanford-logo.avif'
-import skills from '../assets/json/skills.json'
 import iconBI from '../assets/img/awards/business-insider.png'
 import iconTOI from '../assets/img/awards/times-of-india.png'
 import iconPH from '../assets/img/awards/product-hunt.png'
 import iconSTEM from '../assets/img/awards/stem-mena.png'
 
 const AboutPage = ({ onBack }) => {
-    const skillCategories = Object.keys(skills)
-
     return (
         <div className="about-page">
             {/* Hero Section */}
