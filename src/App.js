@@ -192,9 +192,60 @@ const roles = [
 
 const twinmindPMStats = [
   ['0 -> 1', 'Joined as an early founding team member and helped define the core product loops.'],
-  ['30K+', 'Helped drive early user growth through launches, retention loops, and campus distribution.'],
+  ['10 -> 100K+', 'Joined around 10 beta users and helped scale TwinMind to 100K+ users.'],
   ['#2', 'Product of the Day launch on Product Hunt with thousands of users in the first 24 hours.'],
   ['20+', 'Universities reached through a student ambassador program and grassroots growth engine.'],
+];
+
+const twinmindImpactMetrics = [
+  {
+    metric: '10 -> 100K+',
+    label: 'User growth arc',
+    outcome:
+      'Joined when TwinMind had roughly 10 beta users and helped scale the product to 100K+ users by the time I left.',
+    how:
+      'Shipped the core memory surfaces, Chrome extension workflows, onboarding fixes, daily retention loops, and launch motions that turned early curiosity into repeat usage.',
+  },
+  {
+    metric: '#2',
+    label: 'Product Hunt launch',
+    outcome:
+      'Helped TwinMind reach #2 Product of the Day on Product Hunt and drive thousands of new users in the first 24 hours.',
+    how:
+      'Worked across positioning, launch copy, visuals, community activation, founder outreach, and rapid response to early-user feedback during the launch window.',
+  },
+  {
+    metric: '+30%',
+    label: 'Retention loop',
+    outcome:
+      'Designed and shipped the daily digest/recap loop that lifted retention by roughly 30%.',
+    how:
+      'Converted captured meetings, lectures, and conversations into daily priorities, action items, follow-ups, and personalized context users wanted to check every morning.',
+  },
+  {
+    metric: '70+',
+    label: 'Student ambassadors',
+    outcome:
+      'Built a 70+ person student ambassador program across 20+ universities and helped increase adoption inside the student segment by about 20%.',
+    how:
+      'Positioned TwinMind around lecture notes, study guides, meeting recall, and campus productivity; then built ambassador playbooks, recruiting flows, and grassroots launch pushes.',
+  },
+  {
+    metric: '27K+',
+    label: 'Enterprise access',
+    outcome:
+      'Supported enterprise pilots and LOIs with organizations including Innoventures Education and Apparel Group, representing access to 27K+ employees.',
+    how:
+      'Translated the consumer memory product into an enterprise ROI story: meeting summaries, bilingual knowledge capture, action tracking, and searchable institutional context.',
+  },
+  {
+    metric: 'Press',
+    label: 'Business Insider feature',
+    outcome:
+      'Helped support the product and growth narrative around TwinMind as it was featured in Business Insider coverage of the ex-Google X founding team.',
+    how:
+      'Sharpened the second-brain positioning, Chrome extension story, and product surfaces so the launch narrative was credible to users, press, investors, and partners.',
+  },
 ];
 
 const twinmindProductSurfaces = [
@@ -1503,6 +1554,34 @@ function TwinMindCaseDetails() {
               <span className="fig-label">{title}</span>
               <p>{body}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="tm-case-section tm-impact-section">
+        <div className="tm-section-copy wide">
+          <span className="section-kicker">Measurable impact</span>
+          <h2>Success metrics from launch to scale.</h2>
+          <p>
+            The outcome was not one isolated feature. It was a set of product, growth, and
+            distribution loops that turned an early beta into a product with real user pull,
+            external credibility, and enterprise momentum.
+          </p>
+        </div>
+
+        <div className="tm-impact-grid">
+          {twinmindImpactMetrics.map((item) => (
+            <article className="tm-impact-card" key={item.label}>
+              <div className="tm-impact-head">
+                <strong>{item.metric}</strong>
+                <span>{item.label}</span>
+              </div>
+              <p>{item.outcome}</p>
+              <div className="tm-impact-how">
+                <span>How I helped</span>
+                <p>{item.how}</p>
+              </div>
+            </article>
           ))}
         </div>
       </section>

@@ -1906,6 +1906,91 @@ button.page-hero-card {
   padding: 18px;
 }
 
+.tm-impact-section {
+  padding-top: 96px;
+}
+
+.tm-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.tm-impact-card {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  min-height: 310px;
+  overflow: hidden;
+  padding: 22px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.026)),
+    rgba(255, 255, 255, 0.035);
+  box-shadow: var(--shadow);
+}
+
+.tm-impact-card:first-child {
+  grid-column: span 2;
+}
+
+.tm-impact-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  content: "";
+  background: linear-gradient(90deg, var(--accent-deep), rgba(94, 176, 220, 0.6), transparent);
+}
+
+.tm-impact-head {
+  display: grid;
+  gap: 8px;
+}
+
+.tm-impact-head strong {
+  color: var(--accent-deep);
+  font-size: clamp(2.4rem, 5vw, 4.7rem);
+  line-height: 0.9;
+}
+
+.tm-impact-head span {
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 820;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tm-impact-card > p {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.62;
+}
+
+.tm-impact-how {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.tm-impact-how span {
+  color: var(--accent-deep);
+  font-size: 0.72rem;
+  font-weight: 840;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tm-impact-how p {
+  margin: 0;
+  color: var(--muted-strong);
+  line-height: 1.62;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   display: flex;
@@ -2055,6 +2140,10 @@ button.page-hero-card {
   .tm-ownership-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .tm-impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 680px) {
@@ -2199,8 +2288,13 @@ button.page-hero-card {
   }
 
   .tm-stat-grid,
-  .tm-ownership-grid {
+  .tm-ownership-grid,
+  .tm-impact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tm-impact-card:first-child {
+    grid-column: auto;
   }
 
   .tm-surface-card {
