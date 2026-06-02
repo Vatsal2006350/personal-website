@@ -213,6 +213,8 @@ const twinmindImpactMetrics = [
       'Helped TwinMind reach #2 Product of the Day on Product Hunt and drive thousands of new users in the first 24 hours.',
     how:
       'Worked across positioning, launch copy, visuals, community activation, founder outreach, and rapid response to early-user feedback during the launch window.',
+    sourceLabel: 'Product Hunt',
+    sourceHref: 'https://www.producthunt.com/products/twinmind',
   },
   {
     metric: '+30%',
@@ -245,6 +247,8 @@ const twinmindImpactMetrics = [
       'Helped support the product and growth narrative around TwinMind as it was featured in Business Insider coverage of the ex-Google X founding team.',
     how:
       'Sharpened the second-brain positioning, Chrome extension story, and product surfaces so the launch narrative was credible to users, press, investors, and partners.',
+    sourceLabel: 'Business Insider',
+    sourceHref: 'https://www.businessinsider.com/twinmind-chatgpt-former-google-x-team-builds-ai-assistant-2024-11',
   },
 ];
 
@@ -1581,6 +1585,12 @@ function TwinMindCaseDetails() {
                 <span>How I helped</span>
                 <p>{item.how}</p>
               </div>
+              {item.sourceHref && (
+                <a className="tm-impact-source" href={item.sourceHref} target="_blank" rel="noreferrer">
+                  Source: {item.sourceLabel}
+                  <FiArrowUpRight aria-hidden="true" />
+                </a>
+              )}
             </article>
           ))}
         </div>

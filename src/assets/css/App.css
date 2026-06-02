@@ -1920,7 +1920,8 @@ button.page-hero-card {
   position: relative;
   display: grid;
   gap: 18px;
-  min-height: 310px;
+  align-content: start;
+  min-height: 360px;
   overflow: hidden;
   padding: 22px;
   border: 1px solid var(--glass-border);
@@ -1929,10 +1930,6 @@ button.page-hero-card {
     linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.026)),
     rgba(255, 255, 255, 0.035);
   box-shadow: var(--shadow);
-}
-
-.tm-impact-card:first-child {
-  grid-column: span 2;
 }
 
 .tm-impact-card::before {
@@ -1989,6 +1986,23 @@ button.page-hero-card {
   margin: 0;
   color: var(--muted-strong);
   line-height: 1.62;
+}
+
+.tm-impact-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: max-content;
+  max-width: 100%;
+  margin-top: -4px;
+  color: var(--accent-deep);
+  font-size: 0.82rem;
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.tm-impact-source svg {
+  flex: 0 0 auto;
 }
 
 /* ---------- Footer ---------- */
@@ -2291,10 +2305,6 @@ button.page-hero-card {
   .tm-ownership-grid,
   .tm-impact-grid {
     grid-template-columns: 1fr;
-  }
-
-  .tm-impact-card:first-child {
-    grid-column: auto;
   }
 
   .tm-surface-card {
