@@ -470,7 +470,7 @@ const navItems = [
   { label: 'Contact', page: 'home', target: 'contact' },
 ];
 
-const rotatingWords = ['AI-native', 'founder-speed', 'human-scale', 'shippable'];
+const rotatingWords = ['customer insight', 'user pain', 'market signals', 'messy workflows'];
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 28 },
@@ -761,26 +761,27 @@ function Hero({ word, navigate }) {
           animate="visible"
         >
           <motion.div className="eyebrow-row" variants={itemVariants}>
-            <span>Product engineer</span>
+            <span>Product strategy</span>
             <span>Ann Arbor + Dubai</span>
-            <span>AI products</span>
+            <span>0-to-1 AI products</span>
           </motion.div>
 
           <motion.h1 variants={itemVariants}>
             <span className="hero-line">Vatsal Shah</span>
-            <span className="hero-line">builds</span>
+            <span className="hero-line">turns</span>
             <span className="hero-line">
               <AnimatedWord word={word} />
             </span>
-            <span className="hero-line">products for</span>
-            <span className="hero-line">startup-speed</span>
-            <span className="hero-line">teams.</span>
+            <span className="hero-line">into</span>
+            <span className="hero-line">AI products</span>
+            <span className="hero-line">that scale.</span>
           </motion.h1>
 
           <motion.p className="hero-lede" variants={itemVariants}>
-            Computer Science student at the University of Michigan, product operator, and builder
-            across YC-backed social AI, AI memory, creator tools, commerce systems, and startup
-            growth.
+            Product-minded engineer at the University of Michigan with startup reps across
+            YC-backed social AI, AI memory, creator tools, and commerce systems. I own the path
+            from customer discovery and product strategy to shipped features, launch loops, and
+            measurable adoption.
           </motion.p>
 
           <motion.div className="hero-actions" variants={itemVariants}>
@@ -817,13 +818,13 @@ function Hero({ word, navigate }) {
             <img src={meHero} alt="Vatsal Shah" />
             <div className="portrait-caption">
               <span>Currently</span>
-              <strong>Building AI-native social products at startup pace</strong>
+              <strong>Building AI products from insight to adoption</strong>
             </div>
           </div>
 
           <div className="motion-spec">
             <span className="fig-label">Operator mode</span>
-            <code>{'{ customer insight -> product story -> shipped loop }'}</code>
+            <code>{'{ discovery -> strategy -> shipped loop -> adoption }'}</code>
           </div>
         </motion.div>
       </div>
