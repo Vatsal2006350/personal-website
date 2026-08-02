@@ -4,11 +4,43 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#eef1f6" />
+    <meta name="theme-color" content="#efece2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e120f" media="(prefers-color-scheme: dark)" />
     <meta
       name="description"
-      content="Aspiring engineer with a passion for typing colorful words."
+      content="Vatsal Shah — product-minded engineer and PM turning customer insight into AI products that scale. YC-backed 0-to-1 work across social AI, AI memory, and creator tools."
     />
+    <meta property="og:title" content="Vatsal Shah — Product / AI" />
+    <meta property="og:description" content="Product-minded engineer and PM. I turn customer insight, user pain, and market signals into AI products that scale." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Type system: grotesk headings + serif-italic accent + monospace eyebrow -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Set theme before paint to avoid a flash of the wrong palette -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('vs-theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/

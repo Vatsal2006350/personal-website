@@ -13,6 +13,8 @@ import {
   FiMail,
   FiMapPin,
   FiMenu,
+  FiMoon,
+  FiSun,
   FiX,
 } from 'react-icons/fi';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -74,10 +76,10 @@ const socials = [
 ];
 
 const metrics = [
-  { value: '100K+', label: 'users reached through product and growth' },
-  { value: '$5.7M', label: 'seed raise support at TwinMind' },
-  { value: 'YC F25', label: 'building in the YC ecosystem' },
-  { value: '10K+', label: 'community built from scratch' },
+  { value: '100K+', label: 'users reached across AI products I shipped' },
+  { value: '$5.7M', label: 'seed raise supported as founding PM' },
+  { value: 'YC F25', label: 'building 0→1 in the YC ecosystem' },
+  { value: '#2', label: 'Product of the Day on Product Hunt' },
 ];
 
 const companies = [
@@ -151,15 +153,15 @@ const caseStudies = [
     eyebrow: 'CPO and co-founder',
     year: '2025',
     image: narrativeImg,
-    tools: ['Founder tools', 'Customer discovery', 'AI video'],
+    tools: ['Customer discovery', 'AI video', 'Founder-led GTM'],
     summary:
-      'AI-powered video editing built from deep creator research, focused on cutting repetitive manual editing time.',
+      'AI that turns hours of raw footage into publish-ready clips. It started as AdDojo, found its wedge in the forums where editors were already describing the pain, and narrowed into live sports.',
     impact:
-      'Led the product from zero through customer discovery, MVP definition, demo narrative, and fundraising readiness.',
+      'I found the problem in public and validated it in public. One Reddit thread returned about 20K views, 53 first-hand accounts and roughly 50 paying customers, and what those customers told me picked the ICP the company runs on today.',
     details: [
-      'Ran 100+ structured interviews with creators, editors, and agencies to find real workflow pain.',
-      'Converted research into product strategy, user journeys, PRDs, and a sequenced MVP roadmap.',
-      'Led weekly product execution and shaped the demo story that helped communicate traction and vision.',
+      'I used community threads as the research instrument. I posted the pain back in the market’s own words and let the replies work as a live interview panel instead of guessing at a persona.',
+      'I built the distribution loop myself: Reddit research, a founder POV video on LinkedIn that hit about 20K impressions, and a Product Hunt launch I led. Every objection went straight into the backlog.',
+      'I let revenue signal narrow the ICP from any creator with raw footage down to live sports, where the same culling engine now returns highlights in under 30 seconds.',
     ],
   },
   {
@@ -394,6 +396,137 @@ const digipalsSurfaces = [
   },
 ];
 
+const NARRATIVE_REDDIT_URL =
+  'https://www.reddit.com/r/weddingvideography/comments/1nn4l1i/i_spend_hours_just_culling_footage_and_it_takes/';
+const NARRATIVE_LINKEDIN_URL =
+  'https://www.linkedin.com/posts/vatsalps_my-founder-just-yelled-at-me-you-need-ugcPost-7354724481203847168-h6YT/';
+const NARRATIVE_PH_URL =
+  'https://www.linkedin.com/posts/vatsalps_were-finally-live-on-product-hunt-pls-support-activity-7360937945572270080-3AZ7';
+
+const narrativeDiscoveryStats = [
+  ['5+ hrs', 'Raw multicam footage behind a single wedding film. That number is where the product started.'],
+  ['53', 'First-hand accounts of the culling workflow, collected in one thread, in the market’s own words.'],
+  ['~20K', 'Views on the research post, which turned a hunch into a demand signal I could repeat.'],
+  ['~50', 'Paying customers from that one thread and the conversations it opened.'],
+];
+
+const narrativeSignals = [
+  {
+    signal:
+      'Culling was the multi-hour step, not cutting. Editors described scrubbing every clip to find a handful of usable moments.',
+    decision:
+      'I scoped v1 to moment detection instead of a full editor. The product had to answer "where are the good parts?" before it earned the right to do anything else.',
+  },
+  {
+    signal:
+      'The top reply was "welcome to editing! Shits tedious." The pain was normalized, not solved. Nobody was even shopping for a fix.',
+    decision:
+      'Normalized pain means no incumbent owns it. I positioned against the workflow instead of against Premiere, and led with time returned rather than features.',
+  },
+  {
+    signal:
+      'People searched for a feeling, not a timecode. The reaction, the laugh, the crowd moment. Their mental model was semantic.',
+    decision:
+      'I built natural language video search, so you type "people laughing" and get the exact moments back. The interface matched how they already thought.',
+  },
+  {
+    signal:
+      'The same cut had to leave as a Reel, a Short and a TikTok. Reformatting was a second unpaid job on top of editing.',
+    decision:
+      'I made multi-format reframing part of the core loop instead of an export setting. It later became the 9:16 cropping engine.',
+  },
+];
+
+const narrativeLoop = [
+  [
+    'Listen',
+    'Read the forums where the workflow is already being complained about, and collect the exact words people use for the pain.',
+  ],
+  [
+    'Post the problem',
+    'Publish the problem, not the product, in the community’s own language. The thread becomes an interview panel that runs without me.',
+  ],
+  [
+    'Answer with the product',
+    'Reply in the thread and in DMs with a demo doing their actual job, instead of dropping a landing page link.',
+  ],
+  [
+    'Convert',
+    'Move from demo to trial to paid, and write down the objection from every conversation word for word.',
+  ],
+  [
+    'Feed it back',
+    'Objections become next sprint’s backlog. Whichever segment converts hardest decides where the next post goes.',
+  ],
+];
+
+const narrativeChannels = [
+  {
+    channel: 'Reddit · research',
+    title: 'The thread that became the research panel',
+    copy:
+      'I posted the culling problem into r/weddingvideography the way an editor would write it, then treated all 53 replies as interview data instead of comments.',
+    result: '~20K views · 53 comments · ~50 paying customers',
+    image: '/narrative-case/reddit-thread.png',
+    alt: 'Reddit thread in r/weddingvideography about spending hours culling footage',
+    href: NARRATIVE_REDDIT_URL,
+    linkLabel: 'Read the thread',
+  },
+  {
+    channel: 'LinkedIn · storytelling',
+    title: 'Founder POV video, not a launch banner',
+    copy:
+      'I told the origin story on camera, the moment the problem became obvious, instead of announcing a feature. The product showed up as the punchline rather than the pitch.',
+    result: '~20K impressions',
+    image: '/narrative-case/linkedin-post.png',
+    alt: 'LinkedIn video post telling the origin story behind the product',
+    href: NARRATIVE_LINKEDIN_URL,
+    linkLabel: 'View the post',
+  },
+  {
+    channel: 'Product Hunt · launch',
+    title: 'A launch I ran end to end',
+    copy:
+      'I owned positioning, launch assets, the demo video and launch day comms around one promise: go from raw footage to publish-ready clips in seconds.',
+    result: '#13 Product of the Day · 160 upvotes · 180 followers',
+    image: '/narrative-case/product-hunt.png',
+    alt: 'Product Hunt launch page showing the day rank and upvote count',
+    href: NARRATIVE_PH_URL,
+    linkLabel: 'View the launch',
+  },
+];
+
+const narrativeImpactMetrics = [
+  {
+    metric: '~50',
+    label: 'Paying customers',
+    outcome:
+      'One research thread and the conversations it opened turned into roughly 50 paying customers, with no ad spend behind it.',
+    how:
+      'I answered demand where it was already being expressed, then replied with a working demo on the person’s own footage instead of a signup link.',
+  },
+  {
+    metric: '#13',
+    label: 'Product Hunt day rank',
+    outcome:
+      'The launch landed at #13 Product of the Day with 160 upvotes and 180 followers.',
+    how:
+      'I wrote the positioning, cut the demo, and sequenced launch day comms across every channel where the earlier posts had already built an audience.',
+    sourceLabel: 'Launch post',
+    sourceHref: NARRATIVE_PH_URL,
+  },
+  {
+    metric: '90%',
+    label: 'Production time removed',
+    outcome:
+      'The same culling engine now returns publish-ready highlights in under 30 seconds, cutting live highlight production time by around 90%.',
+    how:
+      'I used revenue signal from the research loop to narrow the ICP into live sports, where a moment is worth the most while it is still happening.',
+    sourceLabel: 'narrative-sports.com',
+    sourceHref: 'https://www.narrative-sports.com/',
+  },
+];
+
 const recognition = [
   {
     title: 'Featured in Business Insider',
@@ -497,11 +630,61 @@ const itemVariants = {
   },
 };
 
+function useTheme() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof document !== 'undefined') {
+      const attr = document.documentElement.getAttribute('data-theme');
+      if (attr) return attr;
+    }
+    return 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      window.localStorage.setItem('vs-theme', theme);
+    } catch (error) {
+      /* storage unavailable — fall back to in-memory only */
+    }
+  }, [theme]);
+
+  const toggle = () => setTheme((current) => (current === 'dark' ? 'light' : 'dark'));
+
+  return [theme, toggle];
+}
+
+// Ambient light that trails the cursor, exposed to CSS as --mx / --my.
+function usePointerAura() {
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarse = window.matchMedia('(pointer: coarse)').matches;
+    if (reduce || coarse) return undefined;
+
+    let frame = 0;
+    const onMove = (event) => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--mx', `${event.clientX}px`);
+        document.documentElement.style.setProperty('--my', `${event.clientY}px`);
+        frame = 0;
+      });
+    };
+
+    window.addEventListener('mousemove', onMove);
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+}
+
 function App() {
   const [wordIndex, setWordIndex] = useState(0);
   const [view, setView] = useState('home');
   const [caseId, setCaseId] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [theme, toggleTheme] = useTheme();
+  usePointerAura();
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 130, damping: 24, mass: 0.25 });
 
@@ -599,12 +782,15 @@ function App() {
 
   return (
     <div className="App">
+      <div className="aura" aria-hidden="true" />
       <motion.div className="scroll-progress" style={{ scaleX: progress }} />
       <SiteNav
         mobileOpen={mobileOpen}
         setMobileOpen={setMobileOpen}
         navigate={navigate}
         currentView={view}
+        theme={theme}
+        toggleTheme={toggleTheme}
       />
 
       <AnimatePresence mode="wait">
@@ -631,7 +817,7 @@ function App() {
   );
 }
 
-function SiteNav({ mobileOpen, setMobileOpen, navigate, currentView }) {
+function SiteNav({ mobileOpen, setMobileOpen, navigate, currentView, theme, toggleTheme }) {
   return (
     <>
       <motion.header
@@ -645,7 +831,7 @@ function SiteNav({ mobileOpen, setMobileOpen, navigate, currentView }) {
           <span>Vatsal Shah</span>
         </button>
 
-        <nav className="desktop-links" aria-label="Primary navigation">
+        <nav className="nav-cluster desktop-links" aria-label="Primary navigation">
           {navItems.map((item) => (
             <button
               key={item.label}
@@ -658,19 +844,23 @@ function SiteNav({ mobileOpen, setMobileOpen, navigate, currentView }) {
           ))}
         </nav>
 
-        <a className="nav-resume" href={resume} download>
-          <FiDownload aria-hidden="true" />
-          <span>Resume</span>
-        </a>
+        <div className="nav-actions">
+          <a className="nav-resume" href={resume} download>
+            <FiDownload aria-hidden="true" />
+            <span>Resume</span>
+          </a>
 
-        <button
-          className="mobile-toggle"
-          type="button"
-          aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}
-          onClick={() => setMobileOpen((open) => !open)}
-        >
-          {mobileOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
-        </button>
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+
+          <button
+            className="mobile-toggle"
+            type="button"
+            aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}
+            onClick={() => setMobileOpen((open) => !open)}
+          >
+            {mobileOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
+          </button>
+        </div>
       </motion.header>
 
       <AnimatePresence>
@@ -695,6 +885,32 @@ function SiteNav({ mobileOpen, setMobileOpen, navigate, currentView }) {
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+function ThemeToggle({ theme, toggleTheme }) {
+  const isDark = theme === 'dark';
+  return (
+    <button
+      className="theme-toggle"
+      type="button"
+      onClick={toggleTheme}
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      title={isDark ? 'Light mode' : 'Dark mode'}
+    >
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={theme}
+          style={{ display: 'grid', placeItems: 'center' }}
+          initial={{ opacity: 0, rotate: -90, scale: 0.4 }}
+          animate={{ opacity: 1, rotate: 0, scale: 1 }}
+          exit={{ opacity: 0, rotate: 90, scale: 0.4 }}
+          transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {isDark ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
+        </motion.span>
+      </AnimatePresence>
+    </button>
   );
 }
 
@@ -760,37 +976,37 @@ function Hero({ word, navigate }) {
           initial="hidden"
           animate="visible"
         >
-          <motion.div className="eyebrow-row" variants={itemVariants}>
-            <span>Product strategy</span>
-            <span>Ann Arbor + Dubai</span>
-            <span>0-to-1 AI products</span>
+          <motion.div className="hero-eyebrow" variants={itemVariants}>
+            <span>Product</span>
+            <span className="dot" aria-hidden="true">·</span>
+            <span>Engineering</span>
+            <span className="dot" aria-hidden="true">·</span>
+            <span>0→1 AI</span>
           </motion.div>
 
           <motion.h1 variants={itemVariants}>
-            <span className="hero-line">Vatsal Shah</span>
-            <span className="hero-line">turns</span>
+            <span className="hero-line">Vatsal Shah turns</span>
             <span className="hero-line">
               <AnimatedWord word={word} />
             </span>
-            <span className="hero-line">into</span>
-            <span className="hero-line">AI products</span>
+            <span className="hero-line">into AI products</span>
             <span className="hero-line">that scale.</span>
           </motion.h1>
 
           <motion.p className="hero-lede" variants={itemVariants}>
-            Product-minded engineer at the University of Michigan with startup reps across
-            YC-backed social AI, AI memory, creator tools, and commerce systems. I own the path
-            from customer discovery and product strategy to shipped features, launch loops, and
-            measurable adoption.
+            Product-minded engineer and PM at the University of Michigan. I turn customer insight
+            into shipped AI products, from discovery and strategy through launch loops and
+            measurable adoption, with reps across YC-backed social AI, AI memory, creator tools and
+            commerce.
           </motion.p>
 
           <motion.div className="hero-actions" variants={itemVariants}>
             <button className="primary-action" type="button" onClick={() => navigate('home', 'work')}>
-              <span>See work</span>
+              <span>See the work</span>
               <FiArrowUpRight aria-hidden="true" />
             </button>
             <button className="secondary-action" type="button" onClick={() => navigate('about')}>
-              <span>About</span>
+              <span>About me</span>
               <FiBookOpen aria-hidden="true" />
             </button>
           </motion.div>
@@ -1198,10 +1414,11 @@ function ContactSection({ onSubmit }) {
     >
       <div className="contact-copy">
         <span className="section-kicker">Contact</span>
-        <h2>Have a product that needs taste, speed, and technical depth?</h2>
+        <h2>Looking for a PM who can ship, not just spec?</h2>
         <p>
-          I am open to product engineering, AI product, founder-in-residence, and
-          research-adjacent roles with teams that care about craft.
+          I am actively exploring product management and APM roles at big tech and fast-moving
+          startups, plus AI product and founder-in-residence work. If your team cares about
+          customer insight, craft, and velocity, let&apos;s talk.
         </p>
 
         <div className="contact-links">
@@ -1299,6 +1516,7 @@ function CaseStudy({ project, onBack }) {
 
       {project.id === 'digipals' && <DigiPalsCaseDetails />}
       {project.id === 'twinmind' && <TwinMindCaseDetails />}
+      {project.id === 'narrative' && <NarrativeCaseDetails />}
 
       <section className="case-meta-strip">
         <div>
@@ -1600,6 +1818,265 @@ function TwinMindCaseDetails() {
   );
 }
 
+function NarrativeCaseDetails() {
+  return (
+    <>
+      <section className="nr-case-section nr-thesis-section">
+        <div className="nr-section-copy">
+          <span className="section-kicker">Problem discovery</span>
+          <h2>I went looking for the problem before I had a product to sell.</h2>
+          <p>
+            Narrative did not start from an AI idea. It started from a question: where does video
+            work actually hurt? So I went to the places where editors were already typing out their
+            workflow, and the same complaint kept surfacing. Not the cut. The <em>culling</em>.
+            Watching five or more hours of multicam footage to find the three minutes worth keeping.
+          </p>
+          <p>
+            That is a good wedge for three reasons. It is measured in hours, it happens on every job,
+            and nobody was selling a fix for it. People had accepted it as part of the craft.
+          </p>
+        </div>
+
+        <div className="nr-stat-grid">
+          {narrativeDiscoveryStats.map(([value, label]) => (
+            <div className="nr-stat-card" key={value}>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="nr-case-section">
+        <div className="nr-section-copy wide">
+          <span className="section-kicker">Market research</span>
+          <h2>I posted the problem back to the market and let it grade my hypothesis.</h2>
+          <p>
+            Instead of scheduling interviews one at a time, I wrote the pain up in the
+            community&apos;s own language and asked how they solve it. The thread ran in
+            r/weddingvideography and did the work of a research panel. About 20K views and 53 people
+            describing their real workflow, unprompted, with tool names attached.
+          </p>
+        </div>
+
+        <article className="nr-artifact">
+          <div className="nr-artifact-body">
+            <span className="fig-label">Primary research artifact · r/weddingvideography</span>
+            <h3>
+              &ldquo;I spend hours just culling footage, and it takes time away from actually
+              editing.&rdquo;
+            </h3>
+            <p className="nr-artifact-quote">
+              A typical wedding for me has five or more hours of footage, often from multiple
+              cameras. Right now, I go through almost every clip to find the best moments, but it
+              takes me hours and I feel like I&apos;m not being very efficient.
+            </p>
+            <div className="nr-artifact-meta">
+              <span>~20K views</span>
+              <span>53 comments</span>
+              <span>~50 paying customers</span>
+            </div>
+            <a className="nr-link" href={NARRATIVE_REDDIT_URL} target="_blank" rel="noreferrer">
+              Read the thread <FiArrowUpRight aria-hidden="true" />
+            </a>
+          </div>
+          <ArtifactShot
+            src="/narrative-case/reddit-thread.png"
+            alt="Reddit thread in r/weddingvideography about spending hours culling footage"
+          />
+        </article>
+
+        <div className="nr-signal-grid">
+          {narrativeSignals.map((item, index) => (
+            <div className="nr-signal-card" key={item.decision}>
+              <span className="nr-signal-num">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <span className="fig-label">Signal</span>
+                <p>{item.signal}</p>
+              </div>
+              <div className="nr-signal-decision">
+                <span className="fig-label">Product decision</span>
+                <p>{item.decision}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="nr-case-section nr-loop-section">
+        <div className="nr-section-copy">
+          <span className="section-kicker">Distribution system</span>
+          <h2>One thread is luck. I turned it into a loop.</h2>
+          <p>
+            The interesting part was not that a post did well. It was that the post, the research and
+            the roadmap were the same activity. Every reply was a data point, every objection was a
+            backlog item, and every customer told me where to publish next.
+          </p>
+          <p>So I wrote down the steps and ran them again.</p>
+        </div>
+
+        <div className="nr-loop-list">
+          {narrativeLoop.map(([title, body], index) => (
+            <div className="nr-loop-item" key={title}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="nr-case-section">
+        <div className="nr-section-copy wide">
+          <span className="section-kicker">Channels I ran</span>
+          <h2>Distribution treated as a product surface.</h2>
+          <p>
+            Three channels, one system. Research where the pain lives, story where the audience
+            lives, launch where the credibility compounds. I wrote, filmed, shipped and measured all
+            three myself.
+          </p>
+        </div>
+
+        <div className="nr-channel-grid">
+          {narrativeChannels.map((item) => (
+            <article className="nr-channel-card" key={item.title}>
+              <ArtifactShot src={item.image} alt={item.alt} />
+              <div className="nr-channel-copy">
+                <span className="fig-label">{item.channel}</span>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+                <span className="nr-channel-result">{item.result}</span>
+                <a className="nr-link" href={item.href} target="_blank" rel="noreferrer">
+                  {item.linkLabel} <FiArrowUpRight aria-hidden="true" />
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="nr-case-section nr-icp-section">
+        <div className="nr-section-copy wide">
+          <span className="section-kicker">ICP narrowing</span>
+          <h2>The loop also told us which customer to keep.</h2>
+          <p>
+            Wedding editors proved the pain was real and paid to have it removed. But the same
+            question, where are the good moments in hours of raw footage, is worth far more when the
+            clip has to go live while the moment still matters. So we followed the signal out of
+            &ldquo;any creator with footage&rdquo; and into live sports. Same engine, different
+            customer.
+          </p>
+        </div>
+
+        <figure className="nr-icp-shot">
+          <img
+            src="/narrative-case/site-hero.png"
+            alt="Narrative homepage: AI-powered sports highlights, backed by Y Combinator"
+            loading="lazy"
+          />
+          <figcaption>Narrative today. The same culling engine, pointed at live broadcast.</figcaption>
+        </figure>
+
+        <div className="nr-outcome-row">
+          {[
+            ['30s', 'From live broadcast to publish-ready clip'],
+            ['2.7x', 'Content output for teams using Narrative'],
+            ['90%', 'Less live highlight production time'],
+            ['YC', 'Backed by Y Combinator'],
+          ].map(([value, label]) => (
+            <div className="nr-outcome" key={label}>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
+        <a className="nr-link" href="https://www.narrative-sports.com/" target="_blank" rel="noreferrer">
+          Source: narrative-sports.com <FiArrowUpRight aria-hidden="true" />
+        </a>
+      </section>
+
+      <section className="nr-case-section nr-impact-section">
+        <div className="nr-section-copy wide">
+          <span className="section-kicker">Measurable impact</span>
+          <h2>What the system actually returned.</h2>
+        </div>
+
+        <div className="nr-impact-grid">
+          {narrativeImpactMetrics.map((item) => (
+            <article className="nr-impact-card" key={item.label}>
+              <div className="nr-impact-head">
+                <strong>{item.metric}</strong>
+                <span>{item.label}</span>
+              </div>
+              <p>{item.outcome}</p>
+              <div className="nr-impact-how">
+                <span>How I did it</span>
+                <p>{item.how}</p>
+              </div>
+              {item.sourceHref && (
+                <a className="nr-impact-source" href={item.sourceHref} target="_blank" rel="noreferrer">
+                  Source: {item.sourceLabel}
+                  <FiArrowUpRight aria-hidden="true" />
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="nr-case-section">
+        <div className="nr-section-copy wide">
+          <span className="section-kicker">What I owned</span>
+          <h2>Product judgment, not just a backlog.</h2>
+        </div>
+        <div className="nr-owner-grid">
+          {[
+            [
+              'Problem discovery',
+              'I found the wedge in public research instead of a brainstorm, and validated it with the market before writing the spec.',
+            ],
+            [
+              'Product definition',
+              'I turned raw community language into scoped decisions. Moment detection first, semantic search second, reformatting inside the loop.',
+            ],
+            [
+              'Founder-led distribution',
+              'I wrote and shipped the Reddit research post, the LinkedIn video and the Product Hunt launch myself.',
+            ],
+            [
+              'Demo-led conversion',
+              'I replied to demand with the product doing the customer’s own job, which made the demo the sales motion.',
+            ],
+            [
+              'ICP strategy',
+              'I read the conversion data honestly and narrowed from generalist creators to live sports instead of defending the original thesis.',
+            ],
+            [
+              'Feedback instrumentation',
+              'I kept objections word for word, so the backlog came from customers instead of internal opinion.',
+            ],
+          ].map(([title, body]) => (
+            <div className="nr-owner-card" key={title}>
+              <span className="fig-label">{title}</span>
+              <p>{body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ArtifactShot({ src, alt }) {
+  const [visible, setVisible] = useState(true);
+  if (!visible) return null;
+  return (
+    <figure className="nr-shot">
+      <img src={src} alt={alt} loading="lazy" onError={() => setVisible(false)} />
+    </figure>
+  );
+}
+
 function ProductSurfaceShot({ surface }) {
   return (
     <figure className={`tm-surface-visual ${surface.orientation}`}>
@@ -1612,7 +2089,7 @@ function Footer() {
   return (
     <footer className="site-footer">
       <span>Vatsal Shah</span>
-      <span>Built with React and Motion.</span>
+      <span className="footer-mono">© {new Date().getFullYear()} · Designed &amp; built from scratch</span>
       <a href="mailto:svatsal@umich.edu">svatsal@umich.edu</a>
     </footer>
   );
