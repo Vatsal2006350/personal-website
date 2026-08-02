@@ -2312,6 +2312,18 @@ button.page-hero-card {
   padding: 16px;
 }
 
+/* Normalize thumbnails so cards line up regardless of source screenshot size. */
+.nr-channel-card .nr-shot {
+  aspect-ratio: 16 / 9;
+}
+
+.nr-channel-card .nr-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
 .nr-channel-copy {
   display: grid;
   gap: 10px;

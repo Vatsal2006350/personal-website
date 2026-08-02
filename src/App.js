@@ -467,7 +467,7 @@ const narrativeChannels = [
     copy:
       'I posted the culling problem into r/weddingvideography the way an editor would write it, then treated all 53 replies as interview data instead of comments.',
     result: '~20K views · 53 comments · ~50 paying customers',
-    image: '/narrative-case/reddit-thread.png',
+    image: '/narrative-case/reddit.png',
     alt: 'Reddit thread in r/weddingvideography about spending hours culling footage',
     href: NARRATIVE_REDDIT_URL,
     linkLabel: 'Read the thread',
@@ -489,7 +489,7 @@ const narrativeChannels = [
     copy:
       'I owned positioning, launch assets, the demo video and launch day comms around one promise: go from raw footage to publish-ready clips in seconds.',
     result: '#13 Product of the Day · 160 upvotes · 180 followers',
-    image: '/narrative-case/product-hunt.png',
+    image: '/narrative-case/producthunt.png',
     alt: 'Product Hunt launch page showing the day rank and upvote count',
     href: NARRATIVE_PH_URL,
     linkLabel: 'View the launch',
@@ -1881,7 +1881,7 @@ function NarrativeCaseDetails() {
             </a>
           </div>
           <ArtifactShot
-            src="/narrative-case/reddit-thread.png"
+            src="/narrative-case/reddit.png"
             alt="Reddit thread in r/weddingvideography about spending hours culling footage"
           />
         </article>

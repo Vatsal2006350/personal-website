@@ -6,10 +6,10 @@ breaking the layout.
 
 | Filename | Where it shows | Notes |
 | --- | --- | --- |
-| `reddit-thread.png` | "Market research" — next to the quoted post | Screenshot of the r/weddingvideography thread. Crop to the post + top comment. **Not added yet.** |
-| `linkedin-post.png` | "Channels I ran" — LinkedIn card | Founder-POV video post. Crop so the impressions count is visible if you can. **Not added yet.** |
-| `product-hunt.png` | "Channels I ran" — Product Hunt card | The AdDojo launch page showing #13 Day Rank / 160 points. **Not added yet.** |
-| `site-hero.png` | "ICP narrowing" | Captured from narrative-sports.com. Already in place. |
+| `reddit.png` | "Market research" (next to the quoted post) and the Reddit channel card | The r/weddingvideography thread, cropped to the post plus top comment. In place. |
+| `producthunt.png` | "Channels I ran" (Product Hunt card) | The AdDojo launch page showing #13 Day Rank and 160 points. In place. |
+| `site-hero.png` | "ICP narrowing" | Captured from narrative-sports.com. In place. |
+| `linkedin-post.png` | "Channels I ran" (LinkedIn card) | Founder POV video post. Crop so the impressions count is visible if you can. **Not added yet**, so that slot hides itself. |
 
 The case-study hero image is separate — that one is `src/assets/img/narrative.png` (the AdDojo app screenshot).
 
